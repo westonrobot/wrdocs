@@ -1,0 +1,23 @@
+.. Weston Robot Documentation documentation master file, created by
+   sphinx-quickstart on Wed Aug 12 21:06:30 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Weston Robot Documentation
+=====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+
+Mobile Robot Platform
+=====================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+Legged Robot Platform
+=====================
