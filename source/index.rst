@@ -12,14 +12,30 @@ Welcome to Weston Robot Documentation
 
 
 
-Mobile Robot Platform
-=====================
+Wheeled Robot Platform
+======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   /_platforms/mobile/scout
+   /_platforms/wheeled/scout
+   /_platforms/wheeled/hunter
+   
+Tracked Robot Platform
+======================
+
+.. toctree::
+   :maxdepth: 2
+
+   /_platforms/tracked/bunker
    
 
 Legged Robot Platform
 =====================
+
+.. toctree::
+   :maxdepth: 2
+
+   /_platforms/legged/a1
+   /_platforms/legged/aliengo
+   

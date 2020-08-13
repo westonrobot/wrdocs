@@ -1,5 +1,5 @@
-Scout Mobile Robot
-==================
+Bunker Mobile Robot
+===================
 
 .. contents::
    :depth: 2

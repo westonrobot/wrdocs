@@ -1,5 +1,5 @@
-Scout Mobile Robot
-==================
+Hunter Mobile Robot
+===================
 
 .. contents::
    :depth: 2
