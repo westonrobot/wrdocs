@@ -23,3 +23,4 @@ $ sudo docker run --rm -v ~/Workspace/weston_robot/devel/wrdocs:/docs sphinxdoc/
 ## Reference
 
 * https://sphinx-rtd-theme.readthedocs.io/en/stable/demo/demo.html?highlight=color#topics-sidebars-and-rubrics
+* https://www.sphinx-doc.org/en/master/usage/configuration.html

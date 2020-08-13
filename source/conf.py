@@ -66,7 +66,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['_themes/sphinx_rtd_theme']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
@@ -78,7 +78,7 @@ html_logo = './logo.png'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme_path = ["./_themes"]
+html_theme_path = ["./_themes/sphinx_rtd_theme/sphinx_rtd_theme"]
 html_theme = "sphinx_rtd_theme" #'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -88,7 +88,10 @@ html_theme = "sphinx_rtd_theme" #'alabaster'
 html_theme_options = {
     'logo_only': True,
     'display_version': True,
+    'navigation_depth': 2,
     'style_nav_header_background': '#323640'}
+
+html_show_sphinx = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
