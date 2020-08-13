@@ -9,9 +9,7 @@ $ pip install -U Sphinx
 ## Setup the development repository
 
 ```
-$ git clone --recursive https://github.com/westonrobot/wrdocs.git
-$ cd wrdocs/build
-$ git clone -b gh-pages https://github.com/westonrobot/wrdocs.git html
+$ git clone https://github.com/westonrobot/wrdocs.git
 ```
 
 ## Build with sphinx docker
@@ -21,3 +19,7 @@ Following instructions [here](https://docs.docker.com/engine/install/ubuntu/) to
 ```
 $ sudo docker run --rm -v ~/Workspace/weston_robot/devel/wrdocs:/docs sphinxdoc/sphinx make html
 ```
+
+## Reference
+
+* https://sphinx-rtd-theme.readthedocs.io/en/stable/demo/demo.html?highlight=color#topics-sidebars-and-rubrics

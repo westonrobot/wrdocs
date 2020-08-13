@@ -15,9 +15,11 @@ Welcome to Weston Robot Documentation
 Mobile Robot Platform
 =====================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :maxdepth: 1
+
+   /_platforms/mobile/scout
+   
 
 Legged Robot Platform
 =====================
