@@ -19,4 +19,5 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	
 Deploy:
-	cp -R ./build/html/* ./docs
+	rm -rf ./docs
+	cp -rf ./build/html ./docs
