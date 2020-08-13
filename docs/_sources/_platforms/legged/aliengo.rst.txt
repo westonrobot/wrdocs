@@ -1,5 +1,5 @@
-Unitree Aliengo Robot Dog
-=========================
+Aliengo Robot Dog
+=================
 
 .. contents::
    :depth: 2
