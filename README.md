@@ -1,15 +1,12 @@
 # Weston Robot Documentation Source
 
-## Install sphinx
-
-```
-$ pip install -U Sphinx
-```
-
 ## Setup the development repository
 
+You can put the repository at other places but remember to adjust the docker run command accordingly.
+
 ```
-$ git clone https://github.com/westonrobot/wrdocs.git
+$ cd Workspace
+$ git clone https://github.com/westonrobot/docs.git
 ```
 
 ## Build with sphinx docker
@@ -17,7 +14,7 @@ $ git clone https://github.com/westonrobot/wrdocs.git
 Following instructions [here](https://docs.docker.com/engine/install/ubuntu/) to install docker engine first.
 
 ```
-$ sudo docker run --rm -v ~/Workspace/weston_robot/devel/wrdocs:/docs sphinxdoc/sphinx make html
+$ sudo docker run --rm -v ~/Workspace/docs:/docs rduweston/sphinx-rtd make html
 ```
 
 ## Reference
