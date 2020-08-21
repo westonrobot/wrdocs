@@ -1,0 +1,15 @@
+Hunter CAN/Serial Interface
+===========================
+The CAN/Serial interface translates data between CAN/Serial Frames and Hunter data types. There are two main data types:
+
+1. HunterState: Data received from the embedded controller that indicates the current status of the Hunter 
+are converted form a CAN Frame/Serial input and stored as a this C++ data structure
+
+2. HunterMotionCmd: C++ data structure that encapsulates motion control data of Hunter. 
+The data is then translated to a CAN Frame/Serial output compatible to Hunter control
+
+
+Notably, the CAN interface will store the last received motion cmd from the higher level (ROS Interface) 
+and continuously output the cmd (as a CAN Frame)
+to the Hunter at a fixed rate of 50kHz. 
+If this stream of CAN Frames being sent to the embedded controller on the Hunter is stopped, the Hunter will stop moving 

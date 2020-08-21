@@ -8,7 +8,8 @@ Welcome to Weston Robot Documentation
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+      
+   /_overview/overview
 
 
 
@@ -18,8 +19,8 @@ Wheeled Robot Platform
 .. toctree::
    :maxdepth: 2
 
-   /_platforms/wheeled/scout
-   /_platforms/wheeled/hunter
+   /_platforms/wheeled/scout/scout
+   /_platforms/wheeled/hunter/hunter
    
 Tracked Robot Platform
 ======================

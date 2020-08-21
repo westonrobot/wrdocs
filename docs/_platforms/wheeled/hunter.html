@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,10 +26,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -85,11 +85,15 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_overview/overview.html">Overview</a></li>
+</ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="scout.html">Scout Mobile Robot</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Hunter Mobile Robot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-interface">ROS Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-interface">CAN Interface</a></li>
 </ul>
 </li>
 </ul>
@@ -168,15 +172,27 @@
 <h1>Hunter Mobile Robot<a class="headerlink" href="#hunter-mobile-robot" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#basic-operations" id="id1">Basic Operations</a></li>
-<li><a class="reference internal" href="#ros-interface" id="id2">ROS Interface</a></li>
+<li><p><a class="reference internal" href="#basic-operations" id="id1">Basic Operations</a></p></li>
+<li><p><a class="reference internal" href="#ros-interface" id="id2">ROS Interface</a></p></li>
+<li><p><a class="reference internal" href="#can-interface" id="id3">CAN Interface</a></p></li>
 </ul>
 </div>
 <div class="section" id="basic-operations">
 <h2><a class="toc-backref" href="#id1">Basic Operations</a><a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
+<p>get started</p>
 </div>
 <div class="section" id="ros-interface">
 <h2><a class="toc-backref" href="#id2">ROS Interface</a><a class="headerlink" href="#ros-interface" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="can-interface">
+<h2><a class="toc-backref" href="#id3">CAN Interface</a><a class="headerlink" href="#can-interface" title="Permalink to this headline">¶</a></h2>
+<p>The CAN interface translates data between CAN Frames and Hunter data types. There are two main data types:</p>
+<p>1. HunterState: Data received from the embedded controller that indicates the current status of the Hunter
+are converted form a CAN Frame and stored as a this C++ data structure</p>
+<p>2. HunterMotionCmd: C++ data structure that encapsulates motion control data of Hunter.
+The data is then translated to a CAN Frame compatible to Hunter control</p>
+<p>Notably, the CAN interface will store the last received motion cmd from the higher level (ROS Interface) and continuously output the cmd (as a CAN Frame)
+to the Hunter at a fixed rate of 50kHz. If this stream of CAN Frames being sent to the embedded controller on the Hunter is stopped, the Hunter will stop moving</p>
 </div>
 </div>
 
