@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="_overview/overview.html" /> 
+    <link rel="next" title="Mobile Robot System" href="_general/mobile_robot_system.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,20 +85,45 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html#ros-interface">ROS Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html#can-serial-interface">CAN/Serial Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_general/mobile_robot_system.html">Mobile Robot System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_general/mobile_robot_system.html#system-structure">System Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_general/mobile_robot_system.html#hardware-interface">Hardware Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_general/mobile_robot_system.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_general/operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_general/robot_maintenance.html">Robot Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_general/robot_maintenance.html#battery">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_general/robot_maintenance.html#tire">Tire</a></li>
+</ul>
+</li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/scout/scout.html#get-to-know-the-robot">Get to Know the Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/scout/scout.html#pre-operational-check">Pre-operational Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/scout/scout.html#power-up-and-manual-control">Power-up and Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/scout/scout.html#onboard-control">Onboard Control</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/tracked/bunker.html">Bunker Mobile Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/tracked/bunker.html">Bunker Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/tracked/bunker.html#basic-operations">Basic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/tracked/bunker.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/a1.html">A1 Robot Dog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/aliengo.html">Aliengo Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/a1.html">A1 Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/legged/a1.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/aliengo.html">Aliengo Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_platforms/legged/aliengo.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -166,59 +191,41 @@
             
   <div class="section" id="welcome-to-weston-robot-documentation">
 <h1>Welcome to Weston Robot Documentation<a class="headerlink" href="#welcome-to-weston-robot-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-development">
+<h2>General Development<a class="headerlink" href="#general-development" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_overview/overview.html#overview-of-agilex-robots">Overview of AgileX Robots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_overview/overview.html#introduction-ros-to-can-serial-interface">Introduction: ROS to CAN/Serial interface</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html#ros-interface">ROS Interface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_overview/overview.html#can-serial-interface">CAN/Serial Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_overview/overview.html#can-interface">CAN Interface</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="_general/mobile_robot_system.html">Mobile Robot System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_general/operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_general/robot_maintenance.html">Robot Maintenance</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="wheeled-robot-platform">
-<h1>Wheeled Robot Platform<a class="headerlink" href="#wheeled-robot-platform" title="Permalink to this headline">¶</a></h1>
+<h2>Wheeled Robot Platform<a class="headerlink" href="#wheeled-robot-platform" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/hunter/hunter_ROS_interface.html">Hunter ROS Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/wheeled/hunter/hunter_CAN_Serial_interface.html">Hunter CAN/Serial Interface</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="tracked-robot-platform">
-<h1>Tracked Robot Platform<a class="headerlink" href="#tracked-robot-platform" title="Permalink to this headline">¶</a></h1>
+<h2>Tracked Robot Platform<a class="headerlink" href="#tracked-robot-platform" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/tracked/bunker.html">Bunker Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/tracked/bunker.html#basic-operations">Basic Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/tracked/bunker.html#ros-interface">ROS Interface</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/tracked/bunker.html">Bunker Mobile Robot</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="legged-robot-platform">
-<h1>Legged Robot Platform<a class="headerlink" href="#legged-robot-platform" title="Permalink to this headline">¶</a></h1>
+<h2>Legged Robot Platform<a class="headerlink" href="#legged-robot-platform" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/a1.html">A1 Robot Dog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/legged/a1.html#basic-operations">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/a1.html">A1 Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/aliengo.html">Aliengo Robot Dog</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="_platforms/legged/aliengo.html">Aliengo Robot Dog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_platforms/legged/aliengo.html#basic-operations">Basic Operations</a></li>
-</ul>
-</li>
-</ul>
+</div>
 </div>
 </div>
 
@@ -230,7 +237,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="_overview/overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="_general/mobile_robot_system.html" class="btn btn-neutral float-right" title="Mobile Robot System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -258,7 +265,7 @@
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          SphinxRtdTheme.Navigation.enable(false);
       });
   </script>
 
