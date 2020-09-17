@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction: ROS to CAN/Serial interface &mdash; Weston Robot V0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scout Mobile Robot" href="../_platforms/wheeled/scout/scout.html" />
+    <link rel="prev" title="Overview of Robots" href="../_overview/overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #323640" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../_overview/overview.html">Overview of Robots</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction: ROS to CAN/Serial interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#can-serial-interface">CAN/Serial Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/tracked/bunker.html">Bunker Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/a1.html">A1 Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/aliengo.html">Aliengo Robot Dog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Weston Robot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction: ROS to CAN/Serial interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_communication/communication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-ros-to-can-serial-interface">
+<h1>Introduction: ROS to CAN/Serial interface<a class="headerlink" href="#introduction-ros-to-can-serial-interface" title="Permalink to this headline">¶</a></h1>
+<p>This segment runs throughs the interface between ROS messages and low level communications (CAN / Serial)</p>
+<p>The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
+.. image:: _communication/resources/Communication_overview.png
+:width: 600</p>
+<p>Moving down the flow chart:</p>
+<ol class="arabic simple">
+<li>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</li>
+<li>The information in the ROS message will be translated into a platform-unique C++ data structure known as a <em>Platform Command</em>.</li>
+<li>The Basic Operation package contains the subroutines required to translate these platform into CAN frames.</li>
+<li>Furthermore, the package handles the communication of the CAN frame through the CAN bus.</li>
+</ol>
+<p>Moving up the flow chart:
+1. The Basic Operations Interface will also contain the subroutines required to read the CAN frames and translate them
+into platform-unique <em>Platform Messages</em>.</p>
+<ol class="arabic simple" start="2">
+<li>These messages can then be translated into ROS messages by the ROS interface.</li>
+<li>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</li>
+</ol>
+<div class="section" id="can-serial-interface">
+<h2>CAN/Serial Interface<a class="headerlink" href="#can-serial-interface" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="can-interface">
+<h3>CAN Interface<a class="headerlink" href="#can-interface" title="Permalink to this headline">¶</a></h3>
+<p>Information on CAN bus can be found in <a class="reference external" href="https://www.youtube.com/watch?v=FqLDpHsxvf8">https://www.youtube.com/watch?v=FqLDpHsxvf8</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/CAN_bus">https://en.wikipedia.org/wiki/CAN_bus</a>.</p>
+<p>Many protocols for communication through the CAN bus is similar for different platforms.
+As such, a abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
+<p>On the level of <cite>MobileBase</cite> the following is handled:</p>
+<ol class="arabic simple">
+<li>Setting up CAN connection</li>
+<li>Disconnecting CAN connection</li>
+<li>Maintaining stream of CAN Frames</li>
+</ol>
+</div>
+<div class="section" id="enabling-can-communication">
+<h3>Enabling CAN communication<a class="headerlink" href="#enabling-can-communication" title="Permalink to this headline">¶</a></h3>
+<p>If the computer you are using contains a physical CAN bus, communication via CAN bus should be simple.
+Otherwise, a USB to CAN adaptor can be used. Is a USB to CAN adaptor is used, the follwing commands are required:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo modprobe gs_usb
+$ sudo ip link set can0 up type can bitrate 500000
+</pre></div>
+</div>
+</div>
+<div class="section" id="starting-can-connection">
+<h3>Starting CAN connection<a class="headerlink" href="#starting-can-connection" title="Permalink to this headline">¶</a></h3>
+<p>During the setting up of CAN connection, the protocol used to read the CAN Frame will be set.
+Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame <a href="#id1"><span class="problematic" id="id2">*</span></a>rx_frame) function.
+The calling</p>
+<p>To ensure the safe operation of the robot, the robots requires a steady stream of commands from the computer.
+This is to ensure that if communication is lost, the robot would not be stuck executing the previously sent command,
+and instead the robot will stop moving.</p>
+</div>
+<div class="section" id="maintaining-stream-of-can-frames">
+<h3>Maintaining stream of CAN Frames<a class="headerlink" href="#maintaining-stream-of-can-frames" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>The control of this continuous stream of CAN Frames is handled by the::</dt>
+<dd><cite>void MobileBase::ControlLoop(int32_t period_ms)</cite></dd>
+</dl>
+<p>in the MobileBase class. However, the types CAN Frames varies between robots.
+Therefore, the actual function designed to send each message is determined by each platform in the <cite>SendRobotCmd()</cite> function
+i.e. Each platform designs is CAN Frame sending protocol while the MobileRobot abstract class maintains the loop.</p>
+</div>
+<div class="section" id="disconnecting-can-connection">
+<h3>Disconnecting CAN connection<a class="headerlink" href="#disconnecting-can-connection" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="testing-can-connection">
+<h3>Testing CAN connection<a class="headerlink" href="#testing-can-connection" title="Permalink to this headline">¶</a></h3>
+<p>After connecting the robot and the computer via the CAN bus, an additional device should show up from the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ifconfig -a
+</pre></div>
+</div>
+<p>The new device should be identified as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">can</span><span class="c1">#: flags=.....</span>
+</pre></div>
+</div>
+<p>whereby # is a number, usually # = 0. For the segments below, it is assumed that the connection occurs at can0.
+If this occurs, it indicates that the computer is actually connected to the robot via the CAN bus.
+You can attempt to read the data being sent via the CAN bus using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ candump can0
+</pre></div>
+</div>
+<p>If the comuunication is working properly, a stream of hexamdeximal should be flooding the command line. If instead the message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">read</span><span class="p">:</span> <span class="n">Network</span> <span class="ow">is</span> <span class="n">down</span>
+</pre></div>
+</div>
+<p>is shown, it indicates that TODO: not sure exactly what is indicates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ip link set can0 up type can bitrate 500000
+</pre></div>
+</div>
+<p>could fix this issue</p>
+</div>
+</div>
+<div class="section" id="ros-interface">
+<h2>ROS Interface<a class="headerlink" href="#ros-interface" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../_platforms/wheeled/scout/scout.html" class="btn btn-neutral float-right" title="Scout Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../_overview/overview.html" class="btn btn-neutral float-left" title="Overview of Robots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Weston Robot Pte Ltd
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

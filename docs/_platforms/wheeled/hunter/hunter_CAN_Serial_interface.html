@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,10 +26,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -85,12 +85,12 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_overview/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_overview/overview.html#ros-interface">ROS Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_overview/overview.html#can-serial-interface">CAN/Serial Interface</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../scout/scout.html">Scout Mobile Robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunter.html">Hunter Mobile Robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunter.html#basic-operations">Basic Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunter.html#ros-interface">ROS Interface</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tracked/bunker.html">Bunker Mobile Robot</a></li>
@@ -165,7 +165,7 @@
             
   <div class="section" id="hunter-can-serial-interface">
 <h1>Hunter CAN/Serial Interface<a class="headerlink" href="#hunter-can-serial-interface" title="Permalink to this headline">¶</a></h1>
-<p>The CAN/Serial interface translates data between CAN/SerialAN Frames and Hunter data types. There are two main data types:</p>
+<p>The CAN/Serial interface translates data between CAN/Serial Frames and Hunter data types. There are two main data types:</p>
 <p>1. HunterState: Data received from the embedded controller that indicates the current status of the Hunter
 are converted form a CAN Frame/Serial input and stored as a this C++ data structure</p>
 <p>2. HunterMotionCmd: C++ data structure that encapsulates motion control data of Hunter.
