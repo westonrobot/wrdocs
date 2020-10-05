@@ -88,6 +88,7 @@ html_theme = "sphinx_rtd_theme" #'alabaster'
 html_theme_options = {
     'logo_only': True,
     'display_version': True,
+    'collapse_navigation': False,
     'navigation_depth': 2,
     'style_nav_header_background': '#323640'}
 

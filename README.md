@@ -21,3 +21,4 @@ $ sudo docker run --rm -v ~/Workspace/docs:/docs rduweston/sphinx-rtd make html
 
 * https://sphinx-rtd-theme.readthedocs.io/en/stable/demo/demo.html?highlight=color#topics-sidebars-and-rubrics
 * https://www.sphinx-doc.org/en/master/usage/configuration.html
+* https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html

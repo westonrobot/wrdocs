@@ -3,3 +3,6 @@ build/*
 !build/html/.gitkeep
 
 !docs/.nojekyll
+
+# vscode
+.vscode
