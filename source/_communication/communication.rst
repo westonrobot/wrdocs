@@ -104,6 +104,28 @@ is shown, it indicates that TODO: not sure exactly what is indicates::
 
 could fix this issue
 
+Further debugging of CAN
+------------------------
+If the CAN communication between the computer andn the platform is still unable to occur, there might be a hardware fault on the robot platform
+affecting the CAN communication. The followign websites provide a simple overview on how you could go about debugging the hardware on the robot platform.
+
+https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&ref_url=https%253A%252F%252Fwww.google.com%252F
+
+https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&ref_url=https%253A%252F%252Fwww.google.com%252F
+
+https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video-
+
+A simple set of instructionss is given below. These instructions assume basic knnowledge on electrical engineering ad circuits. Furthermore, it is assumed that you have read through the links given Above
+
+
+1. The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:
+a. If would discnnect all peripherals from the robot, and measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even nopenn circuit is expected.
+b. The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.
+
+2. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other.
+If the different ports are not connected, there is likely ann internal wiring issue with the platform
+
+3. With all peripherals plugged in, and 
 
 
 

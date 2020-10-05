@@ -13,14 +13,13 @@ This website provides intrsutctions and explanations to add in debugging of proj
 Overview
 --------
 
-This 
 
 .. toctree::
    :maxdepth: 2
       
    /_overview/overview 
 
-section provides an overview on how the software packages are designed as well as the flow of data from the computer to the robots and vice versa.
+This section provides an overview on how the software packages are designed as well as the flow of data from the computer to the robots and vice versa.
 
 Basic Communication
 -------------------
