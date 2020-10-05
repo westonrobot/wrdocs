@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html4" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,18 +26,18 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Hunter Mobile Robot" href="../hunter/hunter.html" />
-    <link rel="prev" title="Robot Maintenance" href="../../../_general/robot_maintenance.html" /> 
+    <link rel="next" title="Scout Base Respositry" href="scout_software_packages/scout_base.html" />
+    <link rel="prev" title="Welcome to Weston Robot Documentation" href="../../../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,26 +85,14 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../_general/mobile_robot_system.html">Mobile Robot System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../_general/mobile_robot_system.html#system-structure">System Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_general/mobile_robot_system.html#hardware-interface">Hardware Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_general/mobile_robot_system.html#ros-interface">ROS Interface</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_general/operational_safety.html">Operational Safety</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_general/robot_maintenance.html">Robot Maintenance</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../_general/robot_maintenance.html#battery">Battery</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../_general/robot_maintenance.html#tire">Tire</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-to-know-the-robot">Get to Know the Robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pre-operational-check">Pre-operational Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#power-up-and-manual-control">Power-up and Manual Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#onboard-control">Onboard Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-developemnt-kits">Software Developemnt Kits</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hunter/hunter.html">Hunter Mobile Robot</a></li>
@@ -194,23 +182,46 @@
 <h1>Scout Mobile Robot<a class="headerlink" href="#scout-mobile-robot" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#get-to-know-the-robot" id="id1">Get to Know the Robot</a></p></li>
-<li><p><a class="reference internal" href="#pre-operational-check" id="id2">Pre-operational Check</a></p></li>
-<li><p><a class="reference internal" href="#power-up-and-manual-control" id="id3">Power-up and Manual Control</a></p></li>
-<li><p><a class="reference internal" href="#onboard-control" id="id4">Onboard Control</a></p></li>
+<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
+<li><a class="reference internal" href="#get-to-know-the-robot" id="id2">Get to Know the Robot</a></li>
+<li><a class="reference internal" href="#pre-operational-check" id="id3">Pre-operational Check</a></li>
+<li><a class="reference internal" href="#power-up-and-manual-control" id="id4">Power-up and Manual Control</a></li>
+<li><a class="reference internal" href="#onboard-control" id="id5">Onboard Control</a></li>
+<li><a class="reference internal" href="#software-developemnt-kits" id="id6">Software Developemnt Kits</a></li>
 </ul>
 </div>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id1">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Scout robot is a four heel differential drive platform.
+There are currently two versions of the scout robot.
+The manual for ScoutV2 can be found <a class="reference download internal" download="" href="../../../_downloads/6facbd6cbcffc7af16c21a823035ca7f/Scout_Manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>.</p>
+</div>
 <div class="section" id="get-to-know-the-robot">
-<h2><a class="toc-backref" href="#id1">Get to Know the Robot</a><a class="headerlink" href="#get-to-know-the-robot" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Get to Know the Robot</a><a class="headerlink" href="#get-to-know-the-robot" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="pre-operational-check">
-<h2><a class="toc-backref" href="#id2">Pre-operational Check</a><a class="headerlink" href="#pre-operational-check" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Pre-operational Check</a><a class="headerlink" href="#pre-operational-check" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="power-up-and-manual-control">
-<h2><a class="toc-backref" href="#id3">Power-up and Manual Control</a><a class="headerlink" href="#power-up-and-manual-control" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Power-up and Manual Control</a><a class="headerlink" href="#power-up-and-manual-control" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="onboard-control">
-<h2><a class="toc-backref" href="#id4">Onboard Control</a><a class="headerlink" href="#onboard-control" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Onboard Control</a><a class="headerlink" href="#onboard-control" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="software-developemnt-kits">
+<h2><a class="toc-backref" href="#id6">Software Developemnt Kits</a><a class="headerlink" href="#software-developemnt-kits" title="Permalink to this headline">¶</a></h2>
+<p>There are two main repositries created speicifcally for the scout robot:</p>
+<ul class="simple">
+<li>scout_base: <a class="reference external" href="https://github.com/westonrobot/scout_base">https://github.com/westonrobot/scout_base</a></li>
+<li>scout_navigation: <a class="reference external" href="https://github.com/westonrobot/scout_navigation">https://github.com/westonrobot/scout_navigation</a></li>
+</ul>
+<p>For installation and set-up of these packages, please refer to their README.md. More details about each repositiry can be found:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scout_software_packages/scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scout_software_packages/scout_navigation.html">Scout Navigation Respositry</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -222,10 +233,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../hunter/hunter.html" class="btn btn-neutral float-right" title="Hunter Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scout_software_packages/scout_base.html" class="btn btn-neutral float-right" title="Scout Base Respositry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../_general/robot_maintenance.html" class="btn btn-neutral float-left" title="Robot Maintenance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../index.html" class="btn btn-neutral float-left" title="Welcome to Weston Robot Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -252,7 +263,7 @@
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(false);
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
 
