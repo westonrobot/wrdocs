@@ -14,13 +14,13 @@ scout_base node
 ***************
 
 Subscribed Topics
------------------
+#################
 
 Published Topics
------------------
+################
 
 Parameters
-----------
+##########
 .. toctree::
    :maxdepth: 2
 
