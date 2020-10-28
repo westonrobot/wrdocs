@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General Information &mdash; Weston Robot V0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CAN/UART Interface" href="communication.html" />
+    <link rel="prev" title="Welcome to Weston Robot Documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #323640" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">General Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repository-naming">Repository Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-project-setup">Sample Project Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">CAN/UART Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="communication.html#can-uart-interface-ugv-sdk">CAN/UART Interface/ugv_sdk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#can-interface">CAN Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#enabling-can-communication">Enabling CAN communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#starting-can-connection">Starting CAN connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#maintaining-stream-of-can-frames">Maintaining stream of CAN Frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#testing-can-connection">Testing CAN connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#further-debugging-of-can">Further debugging of CAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="communication.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="robot_maintenance.html">Robot Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="robot_maintenance.html#battery">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robot_maintenance.html#tire">Tire</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/_wheeled/_scout/main_scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/_wheeled/_scout/main_scout.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/_wheeled/_scout/main_scout.html#manual-control">Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/_wheeled/_scout/main_scout.html#onboard-control">Onboard Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/_wheeled/_scout/main_scout.html#ros-packages">ROS Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../_platforms/_wheeled/_scout/section_scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../_platforms/_wheeled/_scout/section_scout_navigation.html">Scout Navigation Respositry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/_wheeled/_hunter/hunter.html">Hunter Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/_tracked/bunker.html">Bunker Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/_legged/a1.html">A1 Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/_legged/aliengo.html">Aliengo Robot Dog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Weston Robot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>General Information</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_general/general_information.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-information">
+<h1>General Information<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>In general, most of the robots have an on-board embedded controller that will manage the low level control of individual motors
+to achieve a desired control input (velocity and steering angle/angular velocity).</p>
+<p>The desired control input can be sent to the embedded controller in 3 main ways:</p>
+<ol class="arabic simple">
+<li>Remote controller via radio frequency</li>
+<li>A physical connection via CAN bus</li>
+<li>A physical connection via Serial bus</li>
+</ol>
+<p>Furthermore, the embedded controller is also able to communicate the state of the platform, such as measured velocities, temperature, currents etc, to an external computer via the CAN or Serial bus.</p>
+<p>The software pacakges provided by Weston Robots aim to achieve the following:</p>
+<ol class="arabic simple">
+<li>Handle the low level communication between the computer and the embedded controller in the robots</li>
+<li>Provide and interface between ROS messages and communicating with the robots</li>
+<li>Occasionally, support for simulations (espescailly in webots) is provided</li>
+</ol>
+<div class="section" id="repository-naming">
+<h2>Repository Naming<a class="headerlink" href="#repository-naming" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ugv_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.</li>
+<li>&lt;platform_name&gt;_base: This repository provides the interface between ROS and UGV_sdk.<ul>
+<li>This repository is structure based on the standard ROS package sturcture for a robot.</li>
+<li>The &lt;platform name&gt;_base package translates ROS messages into C++ data structure. This C++ data structure is then converted to low levle messages by ugv_sdk.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="sample-project-setup">
+<h2>Sample Project Setup<a class="headerlink" href="#sample-project-setup" title="Permalink to this headline">¶</a></h2>
+<p>To give a clearer overview on the purpose of the packages, a sample scenario for using these SDKs is described below:</p>
+<ul class="simple">
+<li>You are using the scout platform with a LIDAR module attachced to it.</li>
+<li>You would like to use the ROS navigation stack to control the scout platform in a mapped region using the inputs from the LIDAR module.</li>
+<li>Using the LIDAR’s own software package, a LIDAR node in ROS is created the publsihes a /scan data.</li>
+<li>Using the Scout_Base SDK, a node is created that subscribes to /cmd_vel topics and publishes /odom topic.</li>
+<li>Based on the position which the LIDAR is mounted, a .xacro file for the trasnform between the platform and the LIDAR is created.</li>
+</ul>
+<p>With this, ROS navigation stack is able to navigate the robot based on the provided map.</p>
+<p>This specific example has been implemented and can be found in TODO: link to scout_nav package</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="communication.html" class="btn btn-neutral float-right" title="CAN/UART Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Weston Robot Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Weston Robot Pte Ltd
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

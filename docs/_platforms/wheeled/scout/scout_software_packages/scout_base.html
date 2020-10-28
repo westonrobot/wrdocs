@@ -227,6 +227,9 @@
 <div class="section" id="scout-description-package">
 <h2>scout_description package<a class="headerlink" href="#scout-description-package" title="Permalink to this headline">¶</a></h2>
 <p>This package provides the model of scout robot.</p>
+<p>The basic model of the Scout robot can be found in <em>scout_description/urdf/scout_v2.xacro</em>. If extensions such as LIDARs,
+camera or a frame is added, a new <em>.xacro</em> file should be created and the <em>scout_description/urdf/scout_v2.xacro</em> shoud be imported.</p>
+<p>The <em>.urdf</em> files are generated from the <em>.xacro</em> file and should not be altered manually.</p>
 <div class="section" id="id1">
 <h3>Launch files<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>description.launch: runs the tf node to publish transform of the different links</p>
@@ -240,13 +243,23 @@
 </div>
 <div class="section" id="scout-msgs-package">
 <h2>scout_msgs package<a class="headerlink" href="#scout-msgs-package" title="Permalink to this headline">¶</a></h2>
+<p>This package defines the message types for scout_base_node</p>
 </div>
 <div class="section" id="scout-bringup-package">
 <h2>scout_bringup package<a class="headerlink" href="#scout-bringup-package" title="Permalink to this headline">¶</a></h2>
+<p>This package collates launch files from the <em>scout_description</em> package and the <em>scout_base</em> package, with specific parameter for ease of use.</p>
+<div class="section" id="id3">
+<h3>Launch files<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>scout_minimal_uart.launch: Launches <em>scout_description</em>, <em>scout_base.launch</em> setting the messages to be communicated to Scout using UART protocol</li>
+<li>scout_minimal.launch: Launches <em>scout_description</em>, <em>scout_base.launch</em> setting the messages to be communicated to Scout using CAN protocol</li>
+<li>scout_teleop_keyboard.launch: Launch teleop a teleop keyboard that publishes cmd_vel topic to control the robot</li>
+</ol>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="scout_navigation.html">Scout Navigation Respositry</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
