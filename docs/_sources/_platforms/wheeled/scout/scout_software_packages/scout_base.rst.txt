@@ -2,9 +2,13 @@
 Scout Base Respositry
 #####################
 This repositry provides 4 interlinked packages:
+
 #. scout_base: Creates the main node that communicates with the physical scout_platforms.
+
 #. scout_msgs: defines the types of ROS messages used by the ROS node for scout.
+
 #. scout_description: Provides the URDF file that describes the basic robot model of Scout. Launches node that publishes TF .
+
 #. scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.
 
 ******************
@@ -43,6 +47,18 @@ Parameters
 *************************
 scout_description package
 *************************
+This package provides the model of scout robot.
+
+Launch files
+============
+description.launch: runs the tf node to publish transform of the different links
+
+
+Published Topics
+----------------
+
+* /tf
+
 
 ******************
 scout_msgs package

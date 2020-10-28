@@ -181,11 +181,13 @@
             
   <div class="section" id="scout-base-respositry">
 <h1>Scout Base Respositry<a class="headerlink" href="#scout-base-respositry" title="Permalink to this headline">¶</a></h1>
-<p>This repositry provides 4 interlinked packages:
-#. scout_base: Creates the main node that communicates with the physical scout_platforms.
-#. scout_msgs: defines the types of ROS messages used by the ROS node for scout.
-#. scout_description: Provides the URDF file that describes the basic robot model of Scout. Launches node that publishes TF .
-#. scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.</p>
+<p>This repositry provides 4 interlinked packages:</p>
+<ol class="arabic simple">
+<li>scout_base: Creates the main node that communicates with the physical scout_platforms.</li>
+<li>scout_msgs: defines the types of ROS messages used by the ROS node for scout.</li>
+<li>scout_description: Provides the URDF file that describes the basic robot model of Scout. Launches node that publishes TF .</li>
+<li>scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.</li>
+</ol>
 <div class="section" id="scout-base-package">
 <h2>scout_base package<a class="headerlink" href="#scout-base-package" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="package-summary">
@@ -224,6 +226,17 @@
 </div>
 <div class="section" id="scout-description-package">
 <h2>scout_description package<a class="headerlink" href="#scout-description-package" title="Permalink to this headline">¶</a></h2>
+<p>This package provides the model of scout robot.</p>
+<div class="section" id="id1">
+<h3>Launch files<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>description.launch: runs the tf node to publish transform of the different links</p>
+<div class="section" id="id2">
+<h4>Published Topics<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>/tf</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="scout-msgs-package">
 <h2>scout_msgs package<a class="headerlink" href="#scout-msgs-package" title="Permalink to this headline">¶</a></h2>

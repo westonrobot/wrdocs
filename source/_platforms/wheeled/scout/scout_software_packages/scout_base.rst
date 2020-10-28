@@ -47,15 +47,40 @@ Parameters
 *************************
 scout_description package
 *************************
+This package provides the model of scout robot.
+
+The basic model of the Scout robot can be found in *scout_description/urdf/scout_v2.xacro*. If extensions such as LIDARs,
+camera or a frame is added, a new *.xacro* file should be created and the *scout_description/urdf/scout_v2.xacro* shoud be imported.
+
+The *.urdf* files are generated from the *.xacro* file and should not be altered manually.
+
+Launch files
+============
+description.launch: runs the tf node to publish transform of the different links
+
+
+Published Topics
+----------------
+* /tf
+
 
 ******************
 scout_msgs package
 ******************
+This package defines the message types for scout_base_node
 
 *********************
 scout_bringup package
 *********************
+This package collates launch files from the *scout_description* package and the *scout_base* package, with specific parameter for ease of use.
 
+Launch files
+============
+#. scout_minimal_uart.launch: Launches *scout_description*, *scout_base.launch* setting the messages to be communicated to Scout using UART protocol
+
+#. scout_minimal.launch: Launches *scout_description*, *scout_base.launch* setting the messages to be communicated to Scout using CAN protocol
+
+#. scout_teleop_keyboard.launch: Launch teleop a teleop keyboard that publishes cmd_vel topic to control the robot
 
 .. toctree::
    :maxdepth: 1
