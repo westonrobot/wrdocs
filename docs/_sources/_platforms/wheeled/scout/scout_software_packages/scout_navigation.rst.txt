@@ -1,6 +1,6 @@
-###########################
-Scout Navigation Respositry
-###########################
+****************************
+Scout Navigation Respository
+****************************
 
 This repository contains navigation and simulation packages for scout robot. 
 
@@ -8,14 +8,14 @@ This repository contains navigation and simulation packages for scout robot.
 * scout_ros_nav: a demonstrational ROS navigation setup for scout
 * scout_webots_sim: webots-based simulation support for scout
 
-*****************
+
 Repository Set up
-*****************
+=================
 
 Please setup "[scout_base](https://github.com/westonrobot/scout_base.git)" repository properly before proceeding to the following steps.
 
 1. Install Depednent libraries
-==============================
+------------------------------
 .. code-block:: none
 
   $ sudo apt-get install -y ros-$ROS_DISTRO-ros-controllers \
@@ -29,9 +29,10 @@ Please setup "[scout_base](https://github.com/westonrobot/scout_base.git)" repos
                         ros-$ROS_DISTRO-teleop-twist-keyboard
 
 2. Clone the packages into your catkin workspace and compile
-=============================================================
+------------------------------------------------------------
 
 (the following instructions assume your catkin workspace with scout_base and ugv_sdk is at: ~/catkin_ws/src)
+
 .. code-block:: none
 
   $ cd ~/catkin_ws/src
@@ -39,9 +40,9 @@ Please setup "[scout_base](https://github.com/westonrobot/scout_base.git)" repos
   $ cd ..
   $ catkin_make
 
-***************************
+
 *scout_webots_sim* packages
-***************************
+===========================
 This package provides the tools for a high level interface with the Scout platform in the Webots simulated environment. The tools provided are mainly:
 
 #. A simulated world with the Scout model loaded inside
@@ -99,15 +100,15 @@ This package provides the tools for a high level interface with the Scout platfo
 In the *scout_nav_bringup* the launch file: *scout_sim_basic_full.launch* will launch all 3 launch files above as well as the */tf* node.
 
 
-******************
+
 Sample Development
-******************
+==================
 A sample development of the Scout platform, for navigation and mapping is provided in
  *scout_nav_platform*. This package will be elaborated on in this segment.
 
 
 1. Hardware Specifications
-==========================
+--------------------------
 
 The hardware attached to the Scout robot are:
 
@@ -131,7 +132,7 @@ The LiDAR used can only transmit data through ethernet protocol. The router is u
 
 
 2. Software Specifications
-==========================
+--------------------------
 
 The onboard computer is running Ubuntu 18.04 with ROS Melodic.
 
@@ -152,7 +153,7 @@ The onboard computer is running Ubuntu 18.04 with ROS Melodic.
 
 
 3. Running Actual Robot
-==========================
+-----------------------
 
 Unless stated otherwise, all commands are to be run from the onbaord computer
 Ensure that the workstation is connected to the router on the Scout robot.
@@ -235,21 +236,20 @@ Ensure that the workstation is connected to the router on the Scout robot.
     The topics */lslidar_packet*, */lslidar_point_cloud* and */lslidar_sweep* should be listed out.
 
 
-****************************
+
 4. Simulation Specifications
-****************************
+============================
 
 The simulation should be run on the workstation and NOT the onboard computer
 
 Webots Extensions
-=================
+-----------------
 The ROS [scout_nav_sim_node](./scout_nav_platfom/src/scout_nav_sim_node.cpp) written for this navigation platform implements the [WebotsRunner](./scout_webots_sim/src/scout_webots_runner.cpp) class from the scout_webots_sim package. 
 
 Two extensions were implemented in C++ [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp). These two extensions were added to the instance of WebotsRunner to interface ROS with the LiDAR and IMU in Webots. The two extensions act as an interface between ROS and the extension in webots,
 
-**********************
 5. Running Simulation
-**********************
+=====================
 
 To run the base instance of the simulation (with the platform and LiDAR, but no mapping or navigation running):
 
@@ -265,12 +265,8 @@ Compared to the scout_v2_sim_node_basic.launch, the ROS node created from this s
 
 These additional topics are published as a result of [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp).
 
-
-
-
-******************
 6. Running Mapping
-******************
+==================
 
 Regardless of wether the simulation or the actual robot is used, the following steps for running mapping are the same. 
 
@@ -321,9 +317,9 @@ For the actual robot, commands are run on the onboard computer, unless otherwise
 
     As the Scout is moving around, a map of its surrounding will be obtained and displayed on RVIZ
 
-*****************************
+
 7. Saving and Loading of maps
-*****************************
+=============================
 
 * To save the map generated from mapping:
     
@@ -347,9 +343,9 @@ For the actual robot, commands are run on the onboard computer, unless otherwise
     
         <arg name="map_file" default="${YOUR_CATKIN_WORKSPACE}/src/scout_navigation/scout_ros_nav/maps/{YOUR_MAP_NAME}.yaml"/>
     
-********************    
+  
 8. scout_nav_bringup
-********************
+====================
 
 Form the previous instruction, multiple instances of the terminal would be required to launch all the individual launch files. The scout_nav_bringup package provides launch files that consolidate different launch files:
 
@@ -407,18 +403,17 @@ An example usage of these launch files is as described below:
 
 #. Move the robot around and map the area it is in
 
-.. custom_development_reference:
 
-******************
+
 Custom Development
-******************
+==================
 
 This sections outlines how you would get started on creating your own package for the scout platform with custom hardware extensions, such as a lidar and imu. This respository consist of the files required for both the simulation and the interface with the physical platform and sensors.
 
 
 
 1. Package and Directory Setup
-==============================
+------------------------------
 
 .. code-block:: none
 
@@ -431,7 +426,7 @@ This sections outlines how you would get started on creating your own package fo
 
 
 2. Simulation Setup
-===================
+-------------------
 
 #. New Webots Project
 
@@ -508,9 +503,9 @@ This sections outlines how you would get started on creating your own package fo
 
 Having finished the above steps, you should be able to see the scout platform with its extensions inside your chosen environment. 
 
-**************
+
 3. Robot Setup
-**************
+==============
 
 If the hardware extensions, such as the type of LIDAR or camera, is already known/determined, the simulation should then be altered to closely follow the actual setup. For example:
 

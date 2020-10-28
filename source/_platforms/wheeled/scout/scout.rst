@@ -39,8 +39,3 @@ There are two main repositries created speicifcally for the scout robot:
 .. include:: /_platforms/wheeled/scout/scout_software_packages/scout_navigation.rst
 
 
-.. toctree::
-   :maxdepth: 1
-
-   /_platforms/wheeled/scout/scout_software_packages/scout_base
-   /_platforms/wheeled/scout/scout_software_packages/scout_navigation
