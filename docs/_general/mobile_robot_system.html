@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mobile Robot System &mdash; Weston Robot V0.1.0 documentation</title>
+  <title>System Structure &mdash; Weston Robot V0.1.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Operational Safety" href="operational_safety.html" />
-    <link rel="prev" title="Welcome to Weston Robot Documentation" href="../index.html" /> 
+    <link rel="prev" title="Introduction: ROS to CAN/Serial interface" href="../_communication/communication.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,12 +85,21 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Mobile Robot System</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#system-structure">System Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hardware-interface">Hardware Interface</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../_communication/communication.html">Introduction: ROS to CAN/Serial interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_communication/communication.html#can-serial-interface">CAN/Serial Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_communication/communication.html#ros-interface">ROS Interface</a></li>
 </ul>
 </li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#hardware-interface">Hardware Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#can-serial-interface">CAN/Serial interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#overview-of-software-packages">Overview of software Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#package-naming">Package Naming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operational_safety.html">Operational Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robot_maintenance.html">Robot Maintenance</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="robot_maintenance.html#battery">Battery</a></li>
@@ -103,11 +112,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#software-developemnt-kits">Software Developemnt Kits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#id1">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#get-to-know-the-robot">Get to Know the Robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#pre-operational-check">Pre-operational Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#power-up-and-manual-control">Power-up and Manual Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#onboard-control">Onboard Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#software-developemnt-kits">Software Developemnt Kits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#id2">Software Developemnt Kits</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
@@ -174,7 +185,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Mobile Robot System</li>
+      <li>System Structure</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,9 +204,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mobile-robot-system">
-<h1>Mobile Robot System<a class="headerlink" href="#mobile-robot-system" title="Permalink to this headline">¶</a></h1>
-<p>This page is meant to give a brief overview of the platforms used in Weston Robot and the packages developed by Weston Robots</p>
+  <p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/_sources/_overview/overview.rst.txt
+Overview of Robots
+==================
+=======
+Mobile Robot System
+===================
+This page is meant to give a brief overview of the platforms used in Weston Robot and the packages developed by Weston Robots</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#system-structure" id="id3">System Structure</a></li>
@@ -203,11 +218,14 @@
 <li><a class="reference internal" href="#can-serial-interface" id="id5">CAN/Serial interface</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#overview-of-software-packages" id="id6">Overview of software Packages</a></li>
+<li><a class="reference internal" href="#package-naming" id="id7">Package Naming</a></li>
 </ul>
 </div>
 <div class="section" id="system-structure">
-<h2><a class="toc-backref" href="#id3">System Structure</a><a class="headerlink" href="#system-structure" title="Permalink to this headline">¶</a></h2>
-<p>In general, most of the robots have an on-board embedded controller that will manage the low level control of individual motors
+<h1><a class="toc-backref" href="#id3">System Structure</a><a class="headerlink" href="#system-structure" title="Permalink to this headline">¶</a></h1>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst
+In general, most of the robots have an on-board embedded controller that will manage the low level control of individual motors
 to achieve a desired control input (velocity and steering angle/angular velocity).</p>
 <p>The desired control input can be sent to the embedded controller in 3 main ways:</p>
 <ol class="arabic simple">
@@ -215,14 +233,17 @@ to achieve a desired control input (velocity and steering angle/angular velocity
 <li>A physical connection via CAN bus</li>
 <li>A physical connection via Serial bus</li>
 </ol>
-<p>Furthermore, the embedded controller is also able to communicate the state of the platform to an external computer via the CAN or Serial bus.
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/_sources/_overview/overview.rst.txt
+Furthermore, the embedded controller is also able to communicate the state of the platform, such as measured velocities, temperature, currents etc, to an external computer via the CAN or Serial bus.
+=======
+Furthermore, the embedded controller is also able to communicate the state of the platform to an external computer via the CAN or Serial bus.
 For most platforms, the On-board embedded controller send back messages on state of the platform,
 such as measured velocities, temperature, currents etc.</p>
 </div>
 <div class="section" id="hardware-interface">
-<h2><a class="toc-backref" href="#id4">Hardware Interface</a><a class="headerlink" href="#hardware-interface" title="Permalink to this headline">¶</a></h2>
+<h1><a class="toc-backref" href="#id4">Hardware Interface</a><a class="headerlink" href="#hardware-interface" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="can-serial-interface">
-<h3><a class="toc-backref" href="#id5">CAN/Serial interface</a><a class="headerlink" href="#can-serial-interface" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id5">CAN/Serial interface</a><a class="headerlink" href="#can-serial-interface" title="Permalink to this headline">¶</a></h2>
 <p>Information on CAN bus can be found in <a class="reference external" href="https://www.youtube.com/watch?v=FqLDpHsxvf8">https://www.youtube.com/watch?v=FqLDpHsxvf8</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/CAN_bus">https://en.wikipedia.org/wiki/CAN_bus</a>.</p>
 <p>Many protocols for communication through the CAN bus is similar for different platforms.
 As such, a abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
@@ -233,26 +254,47 @@ As such, a abstract class <cite>MobileBase</cite> was designed as the super clas
 <li>Maintaining stream of CAN Frames</li>
 </ol>
 <div class="section" id="setting-up-can-connection">
-<h4>Setting up CAN connection<a class="headerlink" href="#setting-up-can-connection" title="Permalink to this headline">¶</a></h4>
+<h3>Setting up CAN connection<a class="headerlink" href="#setting-up-can-connection" title="Permalink to this headline">¶</a></h3>
 <p>During the setting up of CAN connection, the protocol used to read the CAN Frame will be set.
 Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame <a href="#id1"><span class="problematic" id="id2">*</span></a>rx_frame) function.
-The calling</p>
-<p>To ensure the safe operation of the robot, a steady stream of commands from the computer and the onboard embedded controller is required.
-This is to ensure that if communication is lost, the robot would not be stuck executing the previously sent command,
-and instead the robot will stop moving.</p>
+The calling
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst</p>
 </div>
-<div class="section" id="disconnecting-can-connection">
-<h4>Disconnecting CAN connection<a class="headerlink" href="#disconnecting-can-connection" title="Permalink to this headline">¶</a></h4>
 </div>
-<div class="section" id="maintaining-stream-of-can-frames">
-<h4>Maintaining stream of CAN Frames<a class="headerlink" href="#maintaining-stream-of-can-frames" title="Permalink to this headline">¶</a></h4>
-<p>The control of this continuous stream of CAN Frames being sent to the embedded controller is controlled by the MobileBase in the
-<cite>void MobileBase::ControlLoop(int32_t period_ms)</cite> function. However, the types CAN Frames to be sent varies between robots.
-Therefore, the actual function designed to send each message is determined by each platform in the <cite>SendRobotCmd()</cite> function
-i.e. Each platform designs is CAN Frame sending protocol while the maintaining of the loop is on the MobileRobot abstract class.</p>
 </div>
-<div class="section" id="testing-can-connection">
-<h4>Testing CAN connection<a class="headerlink" href="#testing-can-connection" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="overview-of-software-packages">
+<h1><a class="toc-backref" href="#id6">Overview of software Packages</a><a class="headerlink" href="#overview-of-software-packages" title="Permalink to this headline">¶</a></h1>
+<p>This segment is an overview of the packages and aims to aid you when navigating through the different packages.</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/_sources/_overview/overview.rst.txt
+The software pacakges provided by Weston Robots aim to achieve the following:
+1. Handle the low level communication between the computer and the embedded controller in the robots
+2. Provide and interface between ROS messages and communicating with the robots
+3. Occasionally, support for simulations (espescailly in webots) is provided
+=======
+Disconnecting CAN connection
+<strong>************************</strong>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst</p>
+</div>
+<div class="section" id="package-naming">
+<h1><a class="toc-backref" href="#id7">Package Naming</a><a class="headerlink" href="#package-naming" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>wrp_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.</li>
+<li>&lt;platform_name&gt;_base: These SDKs provide the interface between ROS and wrp_sdk. Essentially, these SDKs simplify the creating of a ROS node for the platform that translates ROS messages, such as cmd_vel, into  platform-unique messages to each platform. These SDKs utilise tools from wrp_sdk to convert these platform-unique messaages into CAN or serial Messages. As a user of our SDKs, you will largely only interact with the libraries created in the &lt;platform_name&gt;_base SDKs.</li>
+</ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:docs/_sources/_overview/overview.rst.txt
+Example
+——-
+To give a clearer overview on the purpose of the package, a sample scenario for using these SDKs is described below:</p>
+<ul class="simple">
+<li>You are using the scout platform with a LIDAR module attachced to it.</li>
+<li>You would like to use the ROS navigation stack to control the scout platform in a mapped region using the inputs from the LIDAR module.</li>
+<li>Using the LIDAR’s own software package, a LIDAR node in ROS is created the publsihes a /scan data.</li>
+<li>Using the Scout_Base SDK, a node is created that subscribes to /cmd_vel topics and publishes /odom topic.</li>
+<li>Based on the position which the LIDAR is mounted, a .xacro file for the trasnform between the platform and the LIDAR is created.</li>
+</ul>
+<p>With this, ROS navigation stack is able to navigate the robot based on the provided map.</p>
+<p>This specific example has been implemented and can be found in TODO: link to scout_nav package</p>
+<hr class="docutils" />
 <p>After connecting the robot and the computer via the CAN bus, an additional device should show up from the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ifconfig -a
 </pre></div>
@@ -275,10 +317,8 @@ You can attempt to read the data being sent via the CAN bus using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo ip link set can0 up type can bitrate 500000
 </pre></div>
 </div>
-<p>could fix this issue</p>
-</div>
-<div class="section" id="further-debugging-of-can">
-<h4>Further debugging of CAN<a class="headerlink" href="#further-debugging-of-can" title="Permalink to this headline">¶</a></h4>
+<p>could fix this issue
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst</p>
 <p>If the CAN communication between the computer andn the platform is still unable to occur, there might be a hardware fault on the robot platform
 affecting the CAN communication. The followign websites provide a simple overview on how you could go about debugging the hardware on the robot platform.</p>
 <p><a class="reference external" href="https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></p>
@@ -297,7 +337,7 @@ ROS Interface
 and a higher level ROS environnement on a computer.</p>
 <p>In summary, the packages written here converts ROS messages to CAN frames / Serial outputs and back.</p>
 <p>The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.</p>
-<a class="reference internal image-reference" href="../_images/communication_overview.png"><img alt="../_images/communication_overview.png" class="align-center" src="../_images/communication_overview.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_general/figures/communication_overview.png"><img alt="_general/figures/communication_overview.png" class="align-center" src="_general/figures/communication_overview.png" style="width: 400px;" /></a>
 <p>Moving down the flow chart:</p>
 <ol class="arabic simple">
 <li>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</li>
@@ -312,12 +352,6 @@ into platform-unique Platform Messages.</p>
 <li>These messages can then be translated into ROS messages by the ROS interface.</li>
 <li>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</li>
 </ol>
-<div class="toctree-wrapper compound">
-</div>
-<p>operational_safety</p>
-</div>
-</div>
-</div>
 </div>
 
 
@@ -331,7 +365,7 @@ into platform-unique Platform Messages.</p>
         <a href="operational_safety.html" class="btn btn-neutral float-right" title="Operational Safety" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Weston Robot Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../_communication/communication.html" class="btn btn-neutral float-left" title="Introduction: ROS to CAN/Serial interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -3,16 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-<<<<<<< HEAD
-=====================================
 =======
 #####################################
->>>>>>> refs/remotes/origin/pd_dev
 Welcome to Weston Robot Documentation
 #####################################
 
 This website provides intrsutctions and explanations to add in debugging of projects that utilise the hardware and software packages provided by Weston Robots.
-<<<<<<< HEAD
 
 
 Overview
@@ -35,8 +31,6 @@ Most of the robots communicate with external computer using either the CAN bus a
       
    /_communication/communication 
 
-=======
->>>>>>> refs/remotes/origin/pd_dev
 
 *******************
 General Development
@@ -53,11 +47,7 @@ This segment generally summarises key aspects of operating our robot platforms.
 
 **********************
 Wheeled Robot Platform
-<<<<<<< HEAD
 ----------------------
-=======
-**********************
->>>>>>> refs/remotes/origin/pd_dev
 
 .. toctree::
    :maxdepth: 1
@@ -67,11 +57,7 @@ Wheeled Robot Platform
    
 **********************
 Tracked Robot Platform
-<<<<<<< HEAD
 ----------------------
-=======
-**********************
->>>>>>> refs/remotes/origin/pd_dev
 
 .. toctree::
    :maxdepth: 1
@@ -80,11 +66,7 @@ Tracked Robot Platform
    
 **********************
 Legged Robot Platform
-<<<<<<< HEAD
 ----------------------
-=======
-**********************
->>>>>>> refs/remotes/origin/pd_dev
 
 .. toctree::
    :maxdepth: 1

@@ -1,21 +1,4 @@
-<<<<<<< HEAD:docs/_sources/_overview/overview.rst.txt
 Overview of Robots
-==================
-=======
-Mobile Robot System
-===================
-This page is meant to give a brief overview of the platforms used in Weston Robot and the packages developed by Weston Robots
-
-.. contents::
-   :depth: 2
-   :local:
-
-
-
-System Structure
-----------------
-
->>>>>>> refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst
 In general, most of the robots have an on-board embedded controller that will manage the low level control of individual motors 
 to achieve a desired control input (velocity and steering angle/angular velocity).
 
@@ -25,52 +8,16 @@ The desired control input can be sent to the embedded controller in 3 main ways:
 2. A physical connection via CAN bus
 3. A physical connection via Serial bus
 
-<<<<<<< HEAD:docs/_sources/_overview/overview.rst.txt
 Furthermore, the embedded controller is also able to communicate the state of the platform, such as measured velocities, temperature, currents etc, to an external computer via the CAN or Serial bus. 
-=======
-Furthermore, the embedded controller is also able to communicate the state of the platform to an external computer via the CAN or Serial bus. 
-For most platforms, the On-board embedded controller send back messages on state of the platform, 
-such as measured velocities, temperature, currents etc. 
-
-
-Hardware Interface
-------------------
-
-CAN/Serial interface
-^^^^^^^^^^^^^^^^^^^^
-
-Information on CAN bus can be found in https://www.youtube.com/watch?v=FqLDpHsxvf8 and https://en.wikipedia.org/wiki/CAN_bus.
-
-Many protocols for communication through the CAN bus is similar for different platforms. 
-As such, a abstract class `MobileBase` was designed as the super class of the CAN interface class for each robot model.
-
-On the level of `MobileBase` the following is settled:
-
-1. Setting up CAN connection
-2. Disconnecting CAN connection 
-3. Maintaining stream of CAN Frames
-
-Setting up CAN connection
-*************************
-
-During the setting up of CAN connection, the protocol used to read the CAN Frame will be set. 
-Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame *rx_frame) function. 
-The calling 
->>>>>>> refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst
 
 Overview of software Packages
 -----------------------------
 This segment is an overview of the packages and aims to aid you when navigating through the different packages.
 
-<<<<<<< HEAD:docs/_sources/_overview/overview.rst.txt
 The software pacakges provided by Weston Robots aim to achieve the following:
 1. Handle the low level communication between the computer and the embedded controller in the robots
 2. Provide and interface between ROS messages and communicating with the robots
 3. Occasionally, support for simulations (espescailly in webots) is provided
-=======
-Disconnecting CAN connection 
-****************************
->>>>>>> refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst
 
 Package Naming
 --------------
@@ -78,7 +25,6 @@ Package Naming
 
 * <platform_name>_base: These SDKs provide the interface between ROS and wrp_sdk. Essentially, these SDKs simplify the creating of a ROS node for the platform that translates ROS messages, such as cmd_vel, into  platform-unique messages to each platform. These SDKs utilise tools from wrp_sdk to convert these platform-unique messaages into CAN or serial Messages. As a user of our SDKs, you will largely only interact with the libraries created in the <platform_name>_base SDKs. 
 
-<<<<<<< HEAD:docs/_sources/_overview/overview.rst.txt
 Example
 -------
 To give a clearer overview on the purpose of the package, a sample scenario for using these SDKs is described below:
@@ -96,35 +42,6 @@ This specific example has been implemented and can be found in TODO: link to sco
 
 
 
-=======
-
-Testing CAN connection
-***********************
-
-After connecting the robot and the computer via the CAN bus, an additional device should show up from the commands::
-
-   $ ifconfig -a
-
-The new device should be identified as:: 
-
-   can#: flags=.....
-
-whereby # is a number, usually # = 0. For the segments below, it is assumed that the connection occurs at can0.
-If this occurs, it indicates that the computer is actually connected to the robot via the CAN bus. 
-You can attempt to read the data being sent via the CAN bus using:: 
-
-   $ candump can0
-
-If the comuunication is working properly, a stream of hexamdeximal should be flooding the command line. If instead the message:: 
-
-   read: Network is down 
-
-is shown, it indicates that TODO: not sure exactly what is indicates::
-
-   $ sudo ip link set can0 up type can bitrate 500000
-
-could fix this issue
->>>>>>> refs/remotes/origin/pd_dev:source/_general/mobile_robot_system.rst
 
 Further debugging of CAN
 *************************
