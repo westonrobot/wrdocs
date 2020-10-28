@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,10 +26,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scout Mobile Robot" href="../_platforms/wheeled/scout/scout.html" />
-    <link rel="prev" title="Overview of Robots" href="../_overview/overview.html" /> 
+    <link rel="prev" title="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,10 +85,7 @@
               
             
             
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_overview/overview.html">Overview of Robots</a></li>
-</ul>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction: ROS to CAN/Serial interface</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#can-serial-interface">CAN/Serial Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ros-interface">ROS Interface</a></li>
@@ -96,15 +93,31 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#get-to-know-the-robot">Get to Know the Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#pre-operational-check">Pre-operational Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#power-up-and-manual-control">Power-up and Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#onboard-control">Onboard Control</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/tracked/bunker.html">Bunker Mobile Robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/tracked/bunker.html">Bunker Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/tracked/bunker.html#basic-operations">Basic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/tracked/bunker.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/a1.html">A1 Robot Dog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/aliengo.html">Aliengo Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/a1.html">A1 Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/legged/a1.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/aliengo.html">Aliengo Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/legged/aliengo.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -178,17 +191,17 @@
 :width: 600</p>
 <p>Moving down the flow chart:</p>
 <ol class="arabic simple">
-<li>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</li>
-<li>The information in the ROS message will be translated into a platform-unique C++ data structure known as a <em>Platform Command</em>.</li>
-<li>The Basic Operation package contains the subroutines required to translate these platform into CAN frames.</li>
-<li>Furthermore, the package handles the communication of the CAN frame through the CAN bus.</li>
+<li><p>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</p></li>
+<li><p>The information in the ROS message will be translated into a platform-unique C++ data structure known as a <em>Platform Command</em>.</p></li>
+<li><p>The Basic Operation package contains the subroutines required to translate these platform into CAN frames.</p></li>
+<li><p>Furthermore, the package handles the communication of the CAN frame through the CAN bus.</p></li>
 </ol>
 <p>Moving up the flow chart:
 1. The Basic Operations Interface will also contain the subroutines required to read the CAN frames and translate them
 into platform-unique <em>Platform Messages</em>.</p>
 <ol class="arabic simple" start="2">
-<li>These messages can then be translated into ROS messages by the ROS interface.</li>
-<li>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</li>
+<li><p>These messages can then be translated into ROS messages by the ROS interface.</p></li>
+<li><p>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</p></li>
 </ol>
 <div class="section" id="can-serial-interface">
 <h2>CAN/Serial Interface<a class="headerlink" href="#can-serial-interface" title="Permalink to this headline">¶</a></h2>
@@ -199,9 +212,9 @@ into platform-unique <em>Platform Messages</em>.</p>
 As such, a abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
 <p>On the level of <cite>MobileBase</cite> the following is handled:</p>
 <ol class="arabic simple">
-<li>Setting up CAN connection</li>
-<li>Disconnecting CAN connection</li>
-<li>Maintaining stream of CAN Frames</li>
+<li><p>Setting up CAN connection</p></li>
+<li><p>Disconnecting CAN connection</p></li>
+<li><p>Maintaining stream of CAN Frames</p></li>
 </ol>
 </div>
 <div class="section" id="enabling-can-communication">
@@ -261,23 +274,6 @@ You can attempt to read the data being sent via the CAN bus using:</p>
 </div>
 <p>could fix this issue</p>
 </div>
-<div class="section" id="further-debugging-of-can">
-<h3>Further debugging of CAN<a class="headerlink" href="#further-debugging-of-can" title="Permalink to this headline">¶</a></h3>
-<p>If the CAN communication between the computer andn the platform is still unable to occur, there might be a hardware fault on the robot platform
-affecting the CAN communication. The followign websites provide a simple overview on how you could go about debugging the hardware on the robot platform.</p>
-<p><a class="reference external" href="https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></p>
-<p><a class="reference external" href="https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></p>
-<p><a class="reference external" href="https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video">https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video</a>-</p>
-<p>A simple set of instructionss is given below. These instructions assume basic knnowledge on electrical engineering ad circuits. Furthermore, it is assumed that you have read through the links given Above</p>
-<p>1. The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:
-a. If would discnnect all peripherals from the robot, and measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even nopenn circuit is expected.
-b. The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.</p>
-<p>2. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other.
-If the different ports are not connected, there is likely ann internal wiring issue with the platform</p>
-<ol class="arabic simple" start="3">
-<li>With all peripherals plugged in, and</li>
-</ol>
-</div>
 </div>
 <div class="section" id="ros-interface">
 <h2>ROS Interface<a class="headerlink" href="#ros-interface" title="Permalink to this headline">¶</a></h2>
@@ -295,7 +291,7 @@ If the different ports are not connected, there is likely ann internal wiring is
         <a href="../_platforms/wheeled/scout/scout.html" class="btn btn-neutral float-right" title="Scout Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../_overview/overview.html" class="btn btn-neutral float-left" title="Overview of Robots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
