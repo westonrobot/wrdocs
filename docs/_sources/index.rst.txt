@@ -39,8 +39,8 @@ Wheeled Robot Platform
 .. toctree::
    :maxdepth: 1
 
-   /_platforms/wheeled/scout/scout
-   /_platforms/wheeled/hunter/hunter
+   /_platforms/_wheeled/_scout/scout
+   /_platforms/_wheeled/_hunter/hunter
    
 **********************
 Tracked Robot Platform
@@ -49,7 +49,7 @@ Tracked Robot Platform
 .. toctree::
    :maxdepth: 1
 
-   /_platforms/tracked/bunker
+   /_platforms/_tracked/bunker
    
 *********************
 Legged Robot Platform
@@ -58,6 +58,6 @@ Legged Robot Platform
 .. toctree::
    :maxdepth: 1
 
-   /_platforms/legged/a1
-   /_platforms/legged/aliengo
+   /_platforms/_legged/a1
+   /_platforms/_legged/aliengo
    
