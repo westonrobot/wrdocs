@@ -24,4 +24,4 @@ Parameters
 .. toctree::
    :maxdepth: 2
 
-   /_platforms/wheeled/scout/scout_software_packages/scout_navigation
+   /_platforms/wheeled/scout/scout_navigation/scout_navigation

@@ -140,13 +140,14 @@ A simple set of instructionss is given below. These instructions assume basic kn
 
   * The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.
 
-#. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely ann internal wiring issue with the platform
-
-#. With all peripherals plugged in, and 
-
+#. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform
 
 
 ROS Interface
 =============
 .. toctree::
    :maxdepth: 1
+
+In general, the role of the ROS interface is simply to translate messages between platform specific C++ data structures and ROS topics.
+
+The implementation of the ROS Interface will differ greatly between differet platform. For information on platform specific details, refer to the pages on each inidviudal platofrm
