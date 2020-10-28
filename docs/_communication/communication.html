@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scout Mobile Robot" href="../_platforms/wheeled/scout/scout.html" />
-    <link rel="prev" title="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" href="../index.html" /> 
+    <link rel="prev" title="Overview of Software Packages" href="../_general/software_packages.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,19 +85,33 @@
               
             
             
-              <ul class="current">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../_general/mobile_robot_system.html">Overview of Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_general/operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_general/robot_maintenance.html">Robot Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_general/robot_maintenance.html#battery">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_general/robot_maintenance.html#tire">Tire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_general/software_packages.html">Overview of Software Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_general/software_packages.html#repository-naming">Repository Naming</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction: ROS to CAN/Serial interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#can-serial-interface">CAN/Serial Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ros-interface">ROS Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-serial-interface-ugv-sdk">CAN/Serial Interface/ugv_sdk</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#get-to-know-the-robot">Get to Know the Robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#pre-operational-check">Pre-operational Check</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#power-up-and-manual-control">Power-up and Manual Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#onboard-control">Onboard Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#software-developemnt-kits">Software Developemnt Kits</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
@@ -110,14 +124,8 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/a1.html">A1 Robot Dog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/legged/a1.html#basic-operations">Basic Operations</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/aliengo.html">Aliengo Robot Dog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/legged/aliengo.html#basic-operations">Basic Operations</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/a1.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_platforms/legged/aliengo.html">Aliengo Robot Dog</a></li>
 </ul>
 
             
@@ -186,9 +194,10 @@
   <div class="section" id="introduction-ros-to-can-serial-interface">
 <h1>Introduction: ROS to CAN/Serial interface<a class="headerlink" href="#introduction-ros-to-can-serial-interface" title="Permalink to this headline">¶</a></h1>
 <p>This segment runs throughs the interface between ROS messages and low level communications (CAN / Serial)</p>
-<p>The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
-.. image:: _communication/resources/Communication_overview.png
-:width: 600</p>
+<p>The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/Communication_overview.png"><img alt="../_images/Communication_overview.png" src="../_images/Communication_overview.png" style="width: 600px;" /></a>
+</div></blockquote>
 <p>Moving down the flow chart:</p>
 <ol class="arabic simple">
 <li><p>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</p></li>
@@ -203,53 +212,60 @@ into platform-unique <em>Platform Messages</em>.</p>
 <li><p>These messages can then be translated into ROS messages by the ROS interface.</p></li>
 <li><p>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</p></li>
 </ol>
-<div class="section" id="can-serial-interface">
-<h2>CAN/Serial Interface<a class="headerlink" href="#can-serial-interface" title="Permalink to this headline">¶</a></h2>
+<p>With reference to the Overview of Software Packages, &lt;platform&gt;_base handles the ROS Interface. ugv_sdk handles the Basic Operations Interface.</p>
+<div class="section" id="can-serial-interface-ugv-sdk">
+<h2>CAN/Serial Interface/ugv_sdk<a class="headerlink" href="#can-serial-interface-ugv-sdk" title="Permalink to this headline">¶</a></h2>
+<p>This segment outlines how the ugv_sdk: <a class="reference external" href="https://github.com/westonrobot/ugv_sdk">https://github.com/westonrobot/ugv_sdk</a> handles the CAN communication.</p>
+<p>If you are:</p>
+<ol class="arabic simple">
+<li><p>developing the &lt;platform&gt;_base or</p></li>
+<li><p>updating ugv_sdk to support an additional robot</p></li>
+</ol>
+<p>this segment is extremely crucial.</p>
 <div class="section" id="can-interface">
 <h3>CAN Interface<a class="headerlink" href="#can-interface" title="Permalink to this headline">¶</a></h3>
 <p>Information on CAN bus can be found in <a class="reference external" href="https://www.youtube.com/watch?v=FqLDpHsxvf8">https://www.youtube.com/watch?v=FqLDpHsxvf8</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/CAN_bus">https://en.wikipedia.org/wiki/CAN_bus</a>.</p>
 <p>Many protocols for communication through the CAN bus is similar for different platforms.
-As such, a abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
+As such, an abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
 <p>On the level of <cite>MobileBase</cite> the following is handled:</p>
 <ol class="arabic simple">
 <li><p>Setting up CAN connection</p></li>
 <li><p>Disconnecting CAN connection</p></li>
 <li><p>Maintaining stream of CAN Frames</p></li>
 </ol>
-</div>
 <div class="section" id="enabling-can-communication">
-<h3>Enabling CAN communication<a class="headerlink" href="#enabling-can-communication" title="Permalink to this headline">¶</a></h3>
+<h4>Enabling CAN communication<a class="headerlink" href="#enabling-can-communication" title="Permalink to this headline">¶</a></h4>
 <p>If the computer you are using contains a physical CAN bus, communication via CAN bus should be simple.
-Otherwise, a USB to CAN adaptor can be used. Is a USB to CAN adaptor is used, the follwing commands are required:</p>
+Otherwise, a USB to CAN adaptor can be used. If a USB to CAN adaptor is used, the follwing commands are required:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo modprobe gs_usb
 $ sudo ip link set can0 up type can bitrate 500000
 </pre></div>
 </div>
 </div>
 <div class="section" id="starting-can-connection">
-<h3>Starting CAN connection<a class="headerlink" href="#starting-can-connection" title="Permalink to this headline">¶</a></h3>
+<h4>Starting CAN connection<a class="headerlink" href="#starting-can-connection" title="Permalink to this headline">¶</a></h4>
 <p>During the setting up of CAN connection, the protocol used to read the CAN Frame will be set.
-Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame <a href="#id1"><span class="problematic" id="id2">*</span></a>rx_frame) function.
-The calling</p>
+Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame <a href="#id1"><span class="problematic" id="id2">*</span></a>rx_frame) function.</p>
 <p>To ensure the safe operation of the robot, the robots requires a steady stream of commands from the computer.
 This is to ensure that if communication is lost, the robot would not be stuck executing the previously sent command,
 and instead the robot will stop moving.</p>
 </div>
 <div class="section" id="maintaining-stream-of-can-frames">
-<h3>Maintaining stream of CAN Frames<a class="headerlink" href="#maintaining-stream-of-can-frames" title="Permalink to this headline">¶</a></h3>
+<h4>Maintaining stream of CAN Frames<a class="headerlink" href="#maintaining-stream-of-can-frames" title="Permalink to this headline">¶</a></h4>
 <p>The control of this continuous stream of CAN Frames is handled by the:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">MobileBase</span><span class="p">::</span><span class="n">ControlLoop</span><span class="p">(</span><span class="n">int32_t</span> <span class="n">period_ms</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>in the MobileBase class. However, the types CAN Frames varies between robots.
+<p>in the MobileBase class.</p>
+<p>However, the types CAN Frames varies between robots.
 Therefore, the actual function designed to send each message is determined by each platform in the <cite>SendRobotCmd()</cite> function
 i.e. Each platform designs is CAN Frame sending protocol while the MobileRobot abstract class maintains the loop.</p>
 </div>
 <div class="section" id="disconnecting-can-connection">
-<h3>Disconnecting CAN connection<a class="headerlink" href="#disconnecting-can-connection" title="Permalink to this headline">¶</a></h3>
+<h4>Disconnecting CAN connection<a class="headerlink" href="#disconnecting-can-connection" title="Permalink to this headline">¶</a></h4>
 </div>
 <div class="section" id="testing-can-connection">
-<h3>Testing CAN connection<a class="headerlink" href="#testing-can-connection" title="Permalink to this headline">¶</a></h3>
+<h4>Testing CAN connection<a class="headerlink" href="#testing-can-connection" title="Permalink to this headline">¶</a></h4>
 <p>After connecting the robot and the computer via the CAN bus, an additional device should show up from the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ifconfig -a
 </pre></div>
@@ -258,9 +274,10 @@ i.e. Each platform designs is CAN Frame sending protocol while the MobileRobot a
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">can</span><span class="c1">#: flags=.....</span>
 </pre></div>
 </div>
-<p>whereby # is a number, usually # = 0. For the segments below, it is assumed that the connection occurs at can0.
-If this occurs, it indicates that the computer is actually connected to the robot via the CAN bus.
-You can attempt to read the data being sent via the CAN bus using:</p>
+<p>whereby # is a number, usually # = 0.</p>
+<p>If this occurs, it indicates that the computer is actually connected to the robot via the CAN bus.</p>
+<p>For the segments below, it is assumed that the connection occurs at can0.</p>
+<p>You can attempt to read the data being sent via the CAN bus using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ candump can0
 </pre></div>
 </div>
@@ -274,9 +291,35 @@ You can attempt to read the data being sent via the CAN bus using:</p>
 </div>
 <p>could fix this issue</p>
 </div>
+<div class="section" id="further-debugging-of-can">
+<h4>Further debugging of CAN<a class="headerlink" href="#further-debugging-of-can" title="Permalink to this headline">¶</a></h4>
+<p>If the CAN communication between the computer and the platform is still unable to occur, there might be a hardware fault on the robot platform
+affecting the CAN communication. The following websites provide a simple overview on how you could go about debugging the hardware on the robot platform.</p>
+<p><a class="reference external" href="https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></p>
+<p><a class="reference external" href="https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F">https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&amp;ref_url=https%253A%252F%252Fwww.google.com%252F</a></p>
+<p><a class="reference external" href="https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video">https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video</a>-</p>
+<p>A simple set of instructionss is given below. These instructions assume basic knnowledge on electrical engineering and circuits. Furthermore, it is assumed that you have read through the links given Above</p>
+<ol class="arabic simple">
+<li><p>The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>If all peripherals are disconnected from the robot, and you measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even open circuit is expected.</p></li>
+<li><p>The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform</p></li>
+</ol>
+</div>
 </div>
 <div class="section" id="ros-interface">
-<h2>ROS Interface<a class="headerlink" href="#ros-interface" title="Permalink to this headline">¶</a></h2>
+<h3>ROS Interface<a class="headerlink" href="#ros-interface" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+</div>
+<p>In general, the role of the ROS interface is simply to translate messages between platform specific C++ data structures and ROS topics.</p>
+<p>The implementation of the ROS Interface will differ greatly between differet platform. For information on platform specific details, refer to the pages on each inidviudal platofrm.</p>
+</div>
 </div>
 </div>
 
@@ -291,7 +334,7 @@ You can attempt to read the data being sent via the CAN bus using:</p>
         <a href="../_platforms/wheeled/scout/scout.html" class="btn btn-neutral float-right" title="Scout Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../_general/software_packages.html" class="btn btn-neutral float-left" title="Overview of Software Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

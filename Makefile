@@ -20,4 +20,5 @@ help:
 	
 Deploy:
 	rm -rf ./docs
-	cp -rf ./build/html ./docs
+	mkdir docs
+	cp -rf ./build/html/* ./docs

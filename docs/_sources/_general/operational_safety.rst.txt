@@ -1,6 +1,7 @@
+##################
 Operational Safety
-==================
+##################
 
 .. contents::
-   :depth: 2
+   :depth: 1
    :local:
