@@ -3,17 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=======
+
 #####################################
 Welcome to Weston Robot Documentation
 #####################################
+
+This website provides intrsutctions and explanations to aid in debugging of projects that utilise the hardware and software packages provided by Weston Robots.
 
 *******************
 General Development
 *******************
 
-This website provides intrsutctions and explanations to add in debugging of projects that utilise the hardware and software packages provided by Weston Robots.
-
+This segment generally summarises key aspects of operating our robot platforms.
 
 Overview
 --------
@@ -26,6 +27,7 @@ This
    /_general/mobile_robot_system
    /_general/operational_safety
    /_general/robot_maintenance
+   /_general/software_packages
 
 **********************
 Wheeled Robot Platform

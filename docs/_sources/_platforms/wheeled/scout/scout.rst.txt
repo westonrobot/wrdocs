@@ -5,7 +5,7 @@ Scout Mobile Robot
 ************
 Introduction
 ************
-The Scout robot is a four heel differential drive platform. 
+The Scout robot is a four wheel differential drive platform. 
 There are currently two versions of the scout robot. 
 The manual for ScoutV2 can be found :download:`pdf <documents/Scout_Manual.pdf>`.
 
@@ -34,7 +34,10 @@ There are two main repositries created speicifcally for the scout robot:
 
 * scout_navigation: https://github.com/westonrobot/scout_navigation
 
-For installation and set-up of these packages, please refer to their README.md. More details about each repositiry can be found:
+.. include:: /_platforms/wheeled/scout/scout_software_packages/scout_base.rst
+
+.. include:: /_platforms/wheeled/scout/scout_software_packages/scout_navigation.rst
+
 
 .. toctree::
    :maxdepth: 1

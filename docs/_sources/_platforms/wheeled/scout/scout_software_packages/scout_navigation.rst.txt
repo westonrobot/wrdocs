@@ -407,6 +407,8 @@ An example usage of these launch files is as described below:
 
 #. Move the robot around and map the area it is in
 
+.. custom_development_reference:
+
 ******************
 Custom Development
 ******************
