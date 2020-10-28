@@ -21,7 +21,7 @@
 
 project = u'Weston Robot'
 copyright = u'2020, Weston Robot Pte Ltd'
-author = u'Ruixiang Du'
+author = u'Weston Robot Team'
 
 # The short X.Y version
 version = u''
@@ -89,7 +89,7 @@ html_theme_options = {
     'logo_only': True,
     'display_version': True,
     'collapse_navigation': False,
-    'navigation_depth': 2,
+    'navigation_depth': 3,
     'style_nav_header_background': '#323640'}
 
 html_show_sphinx = False
@@ -141,7 +141,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'WestonRobotDocumentation.tex', u'Weston Robot Documentation',
-     u'Ruixiang Du', 'manual'),
+     u'Weston Robot Team', 'manual'),
 ]
 
 

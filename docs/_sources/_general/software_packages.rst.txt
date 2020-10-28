@@ -1,6 +1,9 @@
-#############################
-Overview of Software Packages
-#############################
+Software Package Organization
+=============================
+
+.. toctree::
+   :maxdepth: 1
+      
 This segment is an overview of the packages and aims to aid you when navigating through the different packages.
 
 The software pacakges provided by Weston Robots aim to achieve the following:
@@ -8,9 +11,9 @@ The software pacakges provided by Weston Robots aim to achieve the following:
 2. Provide and interface between ROS messages and communicating with the robots
 3. Occasionally, support for simulations (espescailly in webots) is provided
 
-*****************
 Repository Naming
-*****************
+-----------------
+
 * ugv_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.
 
 * <platform_name>_base: This repository provides the interface between ROS and UGV_sdk. 
@@ -21,7 +24,8 @@ Repository Naming
 
 
 Example
-=======
+-------
+
 To give a clearer overview on the purpose of the package, a sample scenario for using these SDKs is described below:
 
 * You are using the scout platform with a LIDAR module attachced to it. 
@@ -33,8 +37,3 @@ To give a clearer overview on the purpose of the package, a sample scenario for 
 With this, ROS navigation stack is able to navigate the robot based on the provided map.
 
 This specific example has been implemented and can be found in TODO: link to scout_nav package
-
-
-.. toctree::
-   :maxdepth: 1
-      

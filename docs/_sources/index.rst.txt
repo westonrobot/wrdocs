@@ -12,25 +12,16 @@ This website provides intrsutctions and explanations to aid in development and d
 *******************
 General Development
 *******************
+
 This segment generally summarises key aspects of operating our robot platforms.
 
 .. toctree::
    :maxdepth: 1
       
-   /_general/mobile_robot_system
+   /_general/general_information
+   /_general/communication 
    /_general/operational_safety
    /_general/robot_maintenance
-   /_general/software_packages
-
-*******************
-Basic Communication
-*******************
-Most of the robots communicate with external computer using either the CAN bus and Serial bus. This segments outlines some basics of CAN and Serial communication as well as debugging tips.
-
-.. toctree::
-   :maxdepth: 1
-      
-   /_communication/communication 
 
 **********************
 Wheeled Robot Platform
@@ -39,7 +30,7 @@ Wheeled Robot Platform
 .. toctree::
    :maxdepth: 1
 
-   /_platforms/_wheeled/_scout/scout
+   /_platforms/_wheeled/_scout/main_scout
    /_platforms/_wheeled/_hunter/hunter
    
 **********************

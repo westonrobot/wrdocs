@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Scout Base Respositry" href="scout_software_packages/scout_base.html" />
-    <link rel="prev" title="Introduction: ROS to CAN/Serial interface" href="../../../_communication/communication.html" /> 
+    <link rel="next" title="Hunter Mobile Robot" href="../_hunter/hunter.html" />
+    <link rel="prev" title="Overview of Software Packages" href="../../../_general/software_packages.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +86,20 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../_general/mobile_robot_system.html">Overview of Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_general/mobile_robot_system.html">Mobile Robot System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_general/communication.html">ROS to CAN/Serial interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../_general/communication.html#can-serial-interface-ugv-sdk">CAN/Serial Interface/ugv_sdk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#can-interface">CAN Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#enabling-can-communication">Enabling CAN communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#starting-can-connection">Starting CAN connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#maintaining-stream-of-can-frames">Maintaining stream of CAN Frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#testing-can-connection">Testing CAN connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#further-debugging-of-can">Further debugging of CAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../_general/communication.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_general/operational_safety.html">Operational Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_general/robot_maintenance.html">Robot Maintenance</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../_general/robot_maintenance.html#battery">Battery</a></li>
@@ -95,12 +108,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_general/software_packages.html">Overview of Software Packages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../_general/software_packages.html#repository-naming">Repository Naming</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../_communication/communication.html">Introduction: ROS to CAN/Serial interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../_communication/communication.html#can-serial-interface-ugv-sdk">CAN/Serial Interface/ugv_sdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../_general/software_packages.html#example">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -193,6 +201,8 @@
             
   <div class="section" id="scout-mobile-robot">
 <h1>Scout Mobile Robot<a class="headerlink" href="#scout-mobile-robot" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>The Scout robot is a four heel differential drive platform.
@@ -219,12 +229,10 @@ The manual for ScoutV2 can be found <a class="reference download internal" downl
 <li><p>scout_navigation: <a class="reference external" href="https://github.com/westonrobot/scout_navigation">https://github.com/westonrobot/scout_navigation</a></p></li>
 </ul>
 <p>For installation and set-up of these packages, please refer to their README.md. More details about each repositiry can be found:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="scout_software_packages/scout_base.html">Scout Base Respositry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scout_software_packages/scout_navigation.html">Scout Navigation Respositry</a></li>
-</ul>
-</div>
+<blockquote>
+<div><p>/_platforms/_wheeled/_scout/scout_software_packages/scout_base
+/_platforms/_wheeled/_scout/scout_software_packages/scout_navigation</p>
+</div></blockquote>
 </div>
 </div>
 
@@ -236,10 +244,10 @@ The manual for ScoutV2 can be found <a class="reference download internal" downl
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scout_software_packages/scout_base.html" class="btn btn-neutral float-right" title="Scout Base Respositry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../_hunter/hunter.html" class="btn btn-neutral float-right" title="Hunter Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../../_communication/communication.html" class="btn btn-neutral float-left" title="Introduction: ROS to CAN/Serial interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../../_general/software_packages.html" class="btn btn-neutral float-left" title="Overview of Software Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
