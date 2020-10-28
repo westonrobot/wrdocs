@@ -1,5 +1,6 @@
+***************************
 Hunter CAN/Serial Interface
-===========================
+***************************
 The CAN/Serial interface translates data between CAN/Serial Frames and Hunter data types. There are two main data types:
 
 1. HunterState: Data received from the embedded controller that indicates the current status of the Hunter 

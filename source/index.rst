@@ -3,34 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=======
 #####################################
 Welcome to Weston Robot Documentation
 #####################################
 
-This website provides intrsutctions and explanations to add in debugging of projects that utilise the hardware and software packages provided by Weston Robots.
-
-
-Overview
---------
-
-
-.. toctree::
-   :maxdepth: 2
-      
-   /_overview/overview 
-
-This section provides an overview on how the software packages are designed as well as the flow of data from the computer to the robots and vice versa.
-
-Basic Communication
--------------------
-Most of the robots communicate with external computer using either the CAN bus and Serial bus. This segments outlines some basics of CAN and Serial communication as well as debugging tips.
-
-.. toctree::
-   :maxdepth: 2
-      
-   /_communication/communication 
-
+This website provides intrsutctions and explanations to aid in development and debugging of projects that use the hardware and software packages provided by Weston Robots.
 
 *******************
 General Development
@@ -45,9 +22,19 @@ This segment generally summarises key aspects of operating our robot platforms.
    /_general/robot_maintenance
    /_general/software_packages
 
+*******************
+Basic Communication
+*******************
+Most of the robots communicate with external computer using either the CAN bus and Serial bus. This segments outlines some basics of CAN and Serial communication as well as debugging tips.
+
+.. toctree::
+   :maxdepth: 1
+      
+   /_communication/communication 
+
 **********************
 Wheeled Robot Platform
-----------------------
+**********************
 
 .. toctree::
    :maxdepth: 1
@@ -57,16 +44,16 @@ Wheeled Robot Platform
    
 **********************
 Tracked Robot Platform
-----------------------
+**********************
 
 .. toctree::
    :maxdepth: 1
 
    /_platforms/tracked/bunker
    
-**********************
+*********************
 Legged Robot Platform
-----------------------
+*********************
 
 .. toctree::
    :maxdepth: 1

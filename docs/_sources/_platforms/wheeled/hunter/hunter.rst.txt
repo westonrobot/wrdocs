@@ -1,7 +1,7 @@
+###################
 Hunter Mobile Robot
-===================
+###################
 Brief 
-
 
 .. toctree::
    :maxdepth: 2
