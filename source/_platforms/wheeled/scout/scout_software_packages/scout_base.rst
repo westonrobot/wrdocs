@@ -1,27 +1,63 @@
+#####################
 Scout Base Respositry
-=====================
+#####################
 This repositry provides 4 interlinked packages:
-1. scout_base: Creates the main node that communicates with the physical scout_platforms.
-2. scout_msgs: defines the types of ROS messages used by the ROS node for scout.
-3. scout_description: Provides the URDF file that describes the basic robot model of Scout. Launches node that publishes TF .
-4. scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.
 
+#. scout_base: Creates the main node that communicates with the physical scout_platforms.
 
-scout_base
-----------
+#. scout_msgs: defines the types of ROS messages used by the ROS node for scout.
 
-scout_base node
-***************
+#. scout_description: Provides the URDF file that describes the basic robot model of Scout. Launches node that publishes TF .
+
+#. scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.
+
+******************
+scout_base package
+******************
+
+Package Summary
+===============
+
+The scout_base package provides the implementation of the *scout_base_node*. This nodes acts as the interface between common ROS topics and converts them into CAN messages, using ugv_sdk.
+
+Launch files
+============
+scout_base.launch: runs the scout_base_nodes as described below.
+
 
 Subscribed Topics
-#################
+-----------------
+* /cmd_vel
+* /scout_light_control
 
 Published Topics
-################
+----------------
+* /scout_status
+* /odom
+* /tf
 
 Parameters
-##########
+----------
+* /scout_base_node/base_frame: base_link
+* /scout_base_node/odom_frame: odom
+* /scout_base_node/odom_topic_name: odom
+* /scout_base_node/port_name: can0
+* /scout_base_node/simulated_robot: False
+
+*************************
+scout_description package
+*************************
+
+******************
+scout_msgs package
+******************
+
+*********************
+scout_bringup package
+*********************
+
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    /_platforms/wheeled/scout/scout_software_packages/scout_navigation

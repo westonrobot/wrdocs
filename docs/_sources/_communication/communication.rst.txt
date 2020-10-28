@@ -150,4 +150,4 @@ ROS Interface
 
 In general, the role of the ROS interface is simply to translate messages between platform specific C++ data structures and ROS topics.
 
-The implementation of the ROS Interface will differ greatly between differet platform. For information on platform specific details, refer to the pages on each inidviudal platofrm
+The implementation of the ROS Interface will differ greatly between differet platform. For information on platform specific details, refer to the pages on each inidviudal platofrm.

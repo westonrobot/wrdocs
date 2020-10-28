@@ -9,21 +9,21 @@ The Scout robot is a four heel differential drive platform.
 There are currently two versions of the scout robot. 
 The manual for ScoutV2 can be found :download:`pdf <documents/Scout_Manual.pdf>`.
 
-*********************
+
 Get to Know the Robot
-*********************
+=====================
 
-*********************
+
 Pre-operational Check
-*********************
+=====================
 
-***************************
+
 Power-up and Manual Control
-***************************
+===========================
 
-***************
+
 Onboard Control
-***************
+===============
 
 *************************
 Software Developemnt Kits
