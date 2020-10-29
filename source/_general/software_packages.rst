@@ -4,20 +4,23 @@ Overview of Software Packages
 This segment is an overview of the packages and aims to aid you when navigating through the different packages.
 
 The software pacakges provided by Weston Robots aim to achieve the following:
-1. Handle the low level communication between the computer and the embedded controller in the robots
-2. Provide and interface between ROS messages and communicating with the robots
-3. Occasionally, support for simulations (espescailly in webots) is provided
+
+#. Handle the low level communication between the computer and the embedded controller in the robots
+
+#. Provide and interface between ROS messages and communicating with the robots
+
+#. Occasionally, support for simulations (espescailly in webots) is provided
 
 *****************
 Repository Naming
 *****************
-* ugv_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.
+* ugv_sdk: This SDK deals with the low level communication between the computer and the robot platoform via CAN and Serial bus. Currently, this SDK supports the platforms Hunter, Scout and Tracer.
 
-* <platform_name>_base: This repository provides the interface between ROS and UGV_sdk. 
+* <platform>_base: This repository provides the interface between ROS and ugv_sdk. 
 
   * This repository is structure based on the standard ROS package sturcture for a robot. 
 
-  * The <platform name>_base package translates ROS messages into C++ data structure. This C++ data structure is then converted to low levle messages by ugv_sdk.
+  * The <platform>_base package translates ROS messages into C++ data structure. This C++ data structure is then converted to low levle messages by ugv_sdk.
 
 
 Example

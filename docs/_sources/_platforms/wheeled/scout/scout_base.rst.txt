@@ -1,9 +1,9 @@
-*********************
+#####################
 Scout Base Respositry
-*********************
+#####################
 This repositry provides 4 interlinked packages:
 
-#. scout_base: Creates the main node that communicates with the physical scout_platforms.
+#. scout_base: Creates the main node that communicates with the physical scout_platforms (ROS/CAN Interface).
 
 #. scout_msgs: defines the types of ROS messages used by the ROS node for scout.
 

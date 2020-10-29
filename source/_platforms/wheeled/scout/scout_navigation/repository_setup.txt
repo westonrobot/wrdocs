@@ -1,10 +1,11 @@
+*****************
 Repository Set up
-=================
+*****************
 
-Please setup "[scout_base](https://github.com/westonrobot/scout_base.git)" repository properly before proceeding to the following steps.
+Please setup `scout_base <https://github.com/westonrobot/scout_base.git>`_ repository properly before proceeding to the following steps.
 
 1. Install Depednent libraries
-------------------------------
+==============================
 .. code-block:: none
 
   $ sudo apt-get install -y ros-$ROS_DISTRO-ros-controllers \
@@ -18,7 +19,7 @@ Please setup "[scout_base](https://github.com/westonrobot/scout_base.git)" repos
                         ros-$ROS_DISTRO-teleop-twist-keyboard
 
 2. Clone the packages into your catkin workspace and compile
-------------------------------------------------------------
+============================================================
 
 (the following instructions assume your catkin workspace with scout_base and ugv_sdk is at: ~/catkin_ws/src)
 

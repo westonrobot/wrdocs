@@ -1,6 +1,6 @@
-
+**************************
 *scout_webots_sim* package
-==========================
+**************************
 This package provides the tools for a high level interface with the Scout platform in the Webots simulated environment. The tools provided are mainly:
 
 #. A simulated world with the Scout model loaded inside
@@ -19,17 +19,20 @@ This package provides the tools for a high level interface with the Scout platfo
 
 
     This will:
-    1. Launch Webots
-    2. Load a simple world with the scout robot in it
+
+    #. Launch Webots
+    
+    #. Load a simple world with the scout robot in it
 
    
 * Next, the ROS node interfaces ROS with the Scout model in Webots can be launched:
+
     .. code-block:: none
 
         $ roslaunch scout_webots_sim scout_v2_sim_node_basic
 
 
-    In the Webots console, the message *The controller is now connected to the ROS master* should be displayed.
+    In the Webots console, the message :code:`The controller is now connected to the ROS master` should be displayed.
     
     This will start the */scout_webots_node* that
 
@@ -56,6 +59,6 @@ This package provides the tools for a high level interface with the Scout platfo
         $ roslaunch scout_bringup scout_teleop_keyboard.launch
 
 
-In the *scout_nav_bringup* the launch file: *scout_sim_basic_full.launch* will launch all 3 launch files above as well as the */tf* node.
+In the *scout_nav_bringup* the launch file: *scout_sim_basic_full.launch* will launch all 3 launch files above as well as the scout_description.launch.
 
 

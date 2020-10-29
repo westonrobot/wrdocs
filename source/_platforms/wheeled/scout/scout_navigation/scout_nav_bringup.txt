@@ -1,10 +1,11 @@
+*************************
 scout_nav_bringup Package
-=========================
+*************************
 
 Form the previous instruction, multiple instances of the terminal would be required to launch all the individual launch files. The scout_nav_bringup package provides launch files that consolidate different launch files:
 
 scout_v2_sim_nav_platform_full.launch
--------------------------------------
+=====================================
 
 #. Launches `scout_v2_sim_nav_platform.launch`: Runs Webots and start ROS node to interface LiDAR, IMU and Scout in webots with ROS
 
@@ -15,21 +16,21 @@ scout_v2_sim_nav_platform_full.launch
 #. Runs `pointcloud_to_laserscan` node that condenses 3D pointcloud into 2D scan for gmapping
 
 scout_v2_sim_mapping.launch
----------------------------
+===========================
 
 #. Launches `scout_v2_sim_nav_platform_full.launch`
 
 #. Launches `scout_v2_mapping.launch`
 
 scout_v2_sim_navigation.launch
-------------------------------
+==============================
 
 #. Launches `scout_v2_sim_nav_platform_full.launch`
 
 #. Launches `scout_v2_navigation.launch`
 
 scout_v2_robot_mapping.launch
------------------------------
+=============================
 
 #. Launches `scout_base.launch`: Setup communication between onboard PC and Scout
 
@@ -38,7 +39,7 @@ scout_v2_robot_mapping.launch
 #. Launches `scout_v2_mapping.launch`
 
 scout_v2_robot_navigation.launch
---------------------------------
+================================
 
 #. Launches `scout_base.launch`: Setup communication between onboard PC and Scout
 
@@ -47,17 +48,17 @@ scout_v2_robot_navigation.launch
 #. Launches `scout_v2_navigation.launch`
 
 scout_v2_workstation_mapping.launch
------------------------------------
+===================================
 
 #. Runs RVIZ using a preset configuration to display pointcloud, laserscan, mapping and transforms
 
 scout_v2_workstation_navigation.launch
---------------------------------------
+======================================
 
 #. Runs RVIZ using a preset configuration to display pointcloud, laserscan, mapping and transforms
 
 Sample Usage 
-------------
+============
 
 An example usage of these launch files is as described below:
 

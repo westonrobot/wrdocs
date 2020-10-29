@@ -1,12 +1,13 @@
+******************
 Custom Development
-==================
+******************
 
 This sections outlines how you would get started on creating your own package for the scout platform with custom hardware extensions, such as a lidar and imu. This respository consist of the files required for both the simulation and the interface with the physical platform and sensors.
 
 
 
-1. Package and Directory Setup
-------------------------------
+Package and Directory Setup
+===========================
 
 .. code-block:: none
 
@@ -18,8 +19,8 @@ This sections outlines how you would get started on creating your own package fo
 
 
 
-2. Simulation Setup
--------------------
+Simulation Setup
+=================
 
 #. New Webots Project
 
@@ -97,8 +98,8 @@ This sections outlines how you would get started on creating your own package fo
 Having finished the above steps, you should be able to see the scout platform with its extensions inside your chosen environment. 
 
 
-3. Robot Setup
---------------
+Robot Setup
+===========
 
 If the hardware extensions, such as the type of LIDAR or camera, is already known/determined, the simulation should then be altered to closely follow the actual setup. For example:
 

@@ -1,11 +1,12 @@
+******************
 Sample Development
-==================
-A sample development of the Scout platform, for navigation and mapping is provided in
- *scout_nav_platform*. This package will be elaborated on in this segment.
+******************
+
+A sample development of the Scout platform, for navigation and mapping is provided in *scout_nav_platform*. This package will be elaborated on in this segment.
 
 
-1. Hardware Specifications
---------------------------
+Hardware Specifications
+=======================
 
 The hardware attached to the Scout robot are:
 
@@ -19,38 +20,38 @@ The hardware attached to the Scout robot are:
 
 #. 3D Lidar: (LS 16-Channel LiDAR (Compact)](http://www.lslidar.com/product/leida/MX/33802ac6-f05e-4818-ac95-f73b84e99131.html)
 
-A seperate PC will be connected wirelessly to the onbaord system.This PC will be refered to as the *workstation*.
+A seperate PC will be connected wirelessly to the onbaord system through the router. This PC will be refered to as the *workstation*.
 
 Through the CAN interface on the Scout robot, the power is routed to the PDB and distributed to the onboard computer, router and LiDAR.
 
 The onboard computer is also connected to the CAN bus via the CAN interface on the Scout. The onboard computer thus sends the steering commands to the in-build micro-controller in the Scout.
 
-The LiDAR used can only transmit data through ethernet protocol. The router is used to connect the LiDAR, the onboard computer and the workstation.
+The LIDAR used can only transmit data through ethernet protocol. The router is used to connect the LIDAR, the onboard computer and the workstation.
 
 
-2. Software Specifications
---------------------------
+Software Specifications
+=======================
 
 The onboard computer is running Ubuntu 18.04 with ROS Melodic.
 
 * IP Adresses:
 
-    * work station: 10.10.0.150
-    * onboard computer: 10.10.0.10
-    * lsLiDAR: 10.10.0.30
+    * Work Station: 10.10.0.150
+    * Onboard Computer: 10.10.0.10
+    * LIDAR: 10.10.0.30
     
-    The IP address of the work station and onboard computer were set using DHCP on the router, while the lsLiDAR IP address wast set statically using a customised software for lsLiDAR
+    The IP address of the work station and onboard computer were set using DHCP on the router, while the LIDAR IP address wast set statically using a customised software for lsLiDAR
 
 * ROS packages
 
-  * [lslidar](https://github.com/pd-tan/lslidar_C16.git) package was used to publish the LiDAR data as a ROS topic.
-  * [scout_base](https://github.com/westonrobot/scout_base.git) package was used to interface between ROS topics and CAN messages sent through the CAN bus.
-  * [scout_webots_sim](./scout_webots_sim) package was used to implements a Webots simulation of the navigation platform.
+  * `lslidar <https://github.com/pd-tan/lslidar_C16.git>`_ package was used to publish the LiDAR data as a ROS topic.
+  * `scout_base <https://github.com/westonrobot/scout_base.git>`_ package was used to interface between ROS topics and CAN messages sent through the CAN bus.
+  * `scout_webots_sim <https://github.com/westonrobot/scout_navigation/tree/master/scout_webots_sim>`_ package was used to implements a Webots simulation of the navigation platform.
   * `ROS navigation stack` was used for mapping and navigation. gmapping was used for mapping while amcl was used for localization.
 
 
-3. Running Actual Robot
------------------------
+Running Actual Robot
+====================
 
 Unless stated otherwise, all commands are to be run from the onbaord computer
 Ensure that the workstation is connected to the router on the Scout robot.
@@ -101,7 +102,7 @@ Ensure that the workstation is connected to the router on the Scout robot.
 
         $ roslaunch scout_base scout_base.launch
       
-    To test this communication, on the workstation
+    To test this communication, on the workstation:
 
     .. code-block:: none
 
@@ -112,12 +113,12 @@ Ensure that the workstation is connected to the router on the Scout robot.
 
     Take note to suspend the Scout robot, ensuring that the wheels are not in contact with ground to prevent the robot from actually moving.
 
-    More information about the communication between the onboard pc and scout can be found in [scout_base](https://github.com/westonrobot/scout_base.git)
+    More information about the communication between the onboard pc and scout can be found in `scout_base <https://github.com/westonrobot/scout_base.git>`_
 
 
 #. Start Communication with LiDAR
 
-    Since a lsLiDAR is used for this platform, the ROS package developed for lsLiDAR is used. 
+    Since a leishan LIDAR is used for this platform, the ROS package developed for leishan LIDAR is used. 
 
     .. code-block:: none
 
@@ -134,17 +135,20 @@ Ensure that the workstation is connected to the router on the Scout robot.
 
 
 
-4. Simulation Specifications
-----------------------------
+Simulation Specifications
+=========================
 
 The simulation should be run on the workstation and NOT the onboard computer
 
-The ROS [scout_nav_sim_node](./scout_nav_platfom/src/scout_nav_sim_node.cpp) written for this navigation platform implements the [WebotsRunner](./scout_webots_sim/src/scout_webots_runner.cpp) class from the scout_webots_sim package. 
+The ROS `scout_nav_sim_node <https://github.com/westonrobot/scout_navigation/blob/master/scout_nav_platform/src/scout_nav_sim_node.cpp>`_ was written 
+for this navigation platform implements the `WebotsRunner <https://github.com/westonrobot/scout_navigation/blob/master/scout_webots_sim/src/scout_webots_runner.cpp>`_ class from the scout_webots_sim package. 
 
-Two extensions were implemented in C++ [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp). These two extensions were added to the instance of WebotsRunner to interface ROS with the LiDAR and IMU in Webots. The two extensions act as an interface between ROS and the extension in webots,
+Two extensions were implemented in C++ `imu_extension <https://github.com/westonrobot/scout_navigation/blob/master/scout_nav_platform/src/imu_extension.cpp>`_ 
+and `lidar_extension <https://github.com/westonrobot/scout_navigation/blob/master/scout_nav_platform/src/lidar_extension.cpp>`_.
+These two extensions were added to the instance of WebotsRunner to interface ROS with the LiDAR and IMU in Webots. The two extensions act as an interface between ROS and the extension in webots,
 
-5. Running Simulation
----------------------
+Running Simulation
+==================
 
 To run the base instance of the simulation (with the platform and LiDAR, but no mapping or navigation running):
 
@@ -155,19 +159,25 @@ To run the base instance of the simulation (with the platform and LiDAR, but no 
 The robot model loaded from this launch file will have the LiDAR attached to the model (floating above the scout model). Furthermore, the robot model will be loaded into an indoor house environment. 
 
 Compared to the scout_v2_sim_node_basic.launch, the ROS node created from this scout_v2_sim_nav_platform.launch file publishes the additional topics of:
-1. /imu
-2. /rslidar_points
 
-These additional topics are published as a result of [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp).
+#. /imu
 
-6. Running Mapping
-------------------
+#. /rslidar_points
+
+These additional topics are published as a result of
+`imu_extension <https://github.com/westonrobot/scout_navigation/blob/master/scout_nav_platform/src/imu_extension.cpp>`_ 
+and `lidar_extension <https://github.com/westonrobot/scout_navigation/blob/master/scout_nav_platform/src/lidar_extension.cpp>`_.
+
+Running Mapping
+===============
 
 Regardless of wether the simulation or the actual robot is used, the following steps for running mapping are the same. 
 
 For the simulation, the command are all run on the workstation. 
 
-For the actual robot, commands are run on the onboard computer, unless otherwise stated
+For the actual robot, commands are run on the onboard computer, unless otherwise stated.
+
+If everything is setup properly, you should be able to control the Scout model using :code:`scout_teleop_keyboard.launch`
 
 #. Launch Description
 
@@ -175,7 +185,7 @@ For the actual robot, commands are run on the onboard computer, unless otherwise
         
         $ roslaunch scout_nav_platform scout_v2_nav_platform_description.launch
   
-    This will publish the transforms between the different links of the robot as well as the odom and map link
+    This will publish the transforms between the different links of the robot.
 
 #. Visualize on Workstation
    
@@ -193,7 +203,9 @@ For the actual robot, commands are run on the onboard computer, unless otherwise
     
     #. tf
 
-    If all the above steps were executed without issue, the pointcloud obtained from the LiDAR will be seen on RVIZ.
+    If all the above steps were executed without issue, the pointcloud obtained from the LiDAR will be seen on RVIZ. 
+
+    A preset configuration for RVIZ can be found `here <https://github.com/westonrobot/scout_navigation/blob/master/scout_ros_nav/rviz/mapping.rviz>`_
 
 #.  Run mapping
 
@@ -213,8 +225,8 @@ For the actual robot, commands are run on the onboard computer, unless otherwise
     As the Scout is moving around, a map of its surrounding will be obtained and displayed on RVIZ
 
 
-7. Saving and Loading of maps
------------------------------
+Saving and Loading of maps
+==========================
 
 * To save the map generated from mapping:
     

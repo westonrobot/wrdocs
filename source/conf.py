@@ -89,7 +89,7 @@ html_theme_options = {
     'logo_only': True,
     'display_version': True,
     'collapse_navigation': False,
-    'navigation_depth': 2,
+    'navigation_depth': 3,
     'style_nav_header_background': '#323640'}
 
 html_show_sphinx = False
@@ -135,6 +135,7 @@ latex_elements = {
     #
     # 'figure_align': 'htbp',
 }
+latex_toplevel_sectioning = 'part'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,

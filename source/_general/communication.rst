@@ -1,31 +1,31 @@
-#########################################
-Introduction: ROS to CAN/Serial interface
-#########################################
+###########################
+ROS to CAN/Serial interface
+###########################
 This segment runs throughs the interface between ROS messages and low level communications (CAN / Serial)
 
 The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
 
-   .. image:: figures/communication_overview.png
-      :width: 600
+   .. image:: figures/Communication_overview.png
+      :width: 400
 
 
 Moving down the flow chart:
 
-1. The ROS interface will create a node that listens for ROS messages of a specified ROS topic. 
+#. The *ROS/C++ Interface* will create a node that listens for ROS messages of a specified ROS topic. 
 
-2. The information in the ROS message will be translated into a platform-unique C++ data structure known as a *Platform Command*. 
+#. The information in the ROS message will be translated into a platform-unique C++ data structure known as a *Platform Command*. 
 
-3. The Basic Operation package contains the subroutines required to translate these platform into CAN frames. 
+#. The *C++/CAN Interface* is implemented in *ugv_sdk* which contains the subroutines required to translate these platform into CAN frames. 
 
-4. Furthermore, the package handles the communication of the CAN frame through the CAN bus.
+#. Furthermore, *ugv_sdk* handles the communication of the CAN frame through the CAN bus.
 
 Moving up the flow chart:
-1. The Basic Operations Interface will also contain the subroutines required to read the CAN frames and translate them 
+#. The Basic Operations Interface will also contain the subroutines required to read the CAN frames and translate them 
 into platform-unique *Platform Messages*. 
 
-2. These messages can then be translated into ROS messages by the ROS interface. 
+#. These messages can then be translated into ROS messages by the ROS interface. 
 
-3. The ROS interface will also handle publishing of these messages to the appropriate ROS topic. 
+#. The ROS interface will also handle publishing of these messages to the appropriate ROS topic. 
 
 With reference to the Overview of Software Packages, <platform>_base handles the ROS Interface. ugv_sdk handles the Basic Operations Interface.
 
@@ -37,9 +37,9 @@ This segment outlines how the ugv_sdk: https://github.com/westonrobot/ugv_sdk ha
 
 If you are:
 
-#. developing the <platform>_base or
+#. developing the *ROS/C++ interface* | *<platform>_base* or
 
-#. updating ugv_sdk to support an additional robot
+#. updating *C++/CAN Interface* | *ugv_sdk* to support an additional robot
 
 this segment is extremely crucial.
 
@@ -67,11 +67,13 @@ $ sudo ip link set can0 up type can bitrate 500000
 
 Starting CAN connection
 -----------------------
-During the setting up of CAN connection, the protocol used to read the CAN Frame will be set. 
+
+During the setting up of the CAN connection, the protocol used to read the CAN Frame `ParseCANFrame()` will be set. 
+
 Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame *rx_frame) function. 
 
-To ensure the safe operation of the robot, the robots requires a steady stream of commands from the computer.
-This is to ensure that if communication is lost, the robot would not be stuck executing the previously sent command, 
+To ensure the safe operation of the robots, the robots requires a steady stream of commands from the computer.
+This is to ensure that if communication is lost, the robots would not be stuck executing the previously sent command, 
 and instead the robot will stop moving.
 
 Maintaining stream of CAN Frames
@@ -84,7 +86,8 @@ in the MobileBase class.
 
 However, the types CAN Frames varies between robots. 
 Therefore, the actual function designed to send each message is determined by each platform in the `SendRobotCmd()` function
-i.e. Each platform designs is CAN Frame sending protocol while the MobileRobot abstract class maintains the loop.
+i.e. Each platform designs its own CAN Frame sending protocol while the MobileRobot abstract class maintains the loop
+to consistently send CAN frames to the robot.
 
 Disconnecting CAN connection 
 ----------------------------
@@ -124,7 +127,8 @@ could fix this issue
 Further debugging of CAN
 ------------------------
 If the CAN communication between the computer and the platform is still unable to occur, there might be a hardware fault on the robot platform
-affecting the CAN communication. The following websites provide a simple overview on how you could go about debugging the hardware on the robot platform.
+affecting the CAN communication. The following websites provide a simple overview on how you could go about debugging 
+the hardware on the robot platform.
 
 https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&ref_url=https%253A%252F%252Fwww.google.com%252F
 
@@ -132,19 +136,21 @@ https://www.ti.com/lit/an/slyt529/slyt529.pdf?ts=1600396027624&ref_url=https%253
 
 https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video-
 
-A simple set of instructionss is given below. These instructions assume basic knnowledge on electrical engineering and circuits. Furthermore, it is assumed that you have read through the links given Above
+A simple set of instructionss is given below. These instructions assume basic 
+knowledge on electrical engineering and circuits. Furthermore, it is assumed that you have read through the links given above
 
 
 #. The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:
-  * If all peripherals are disconnected from the robot, and you measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even open circuit is expected.
 
-  * The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.
+   * If all peripherals are disconnected from the robot, and you measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even open circuit is expected.
+
+   * The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.
 
 #. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform
 
-
+*************
 ROS Interface
-=============
+*************
 .. toctree::
    :maxdepth: 1
 
