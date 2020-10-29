@@ -10,7 +10,4 @@ Launch files
 
 #. scout_teleop_keyboard.launch: Launch teleop a teleop keyboard that publishes cmd_vel topic to control the robot
 
-.. toctree::
-   :maxdepth: 1
 
-   /_platforms/wheeled/scout/scout_software_packages/scout_navigation

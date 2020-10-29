@@ -1,0 +1,3 @@
+scout_msgs package
+==================
+This package defines the message types for scout_base_node

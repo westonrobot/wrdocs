@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sample Development &mdash; Weston Robot V0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #323640" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/mobile_robot_system.html">Overview of Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/robot_maintenance.html">Robot Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/robot_maintenance.html#battery">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/robot_maintenance.html#tire">Tire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/software_packages.html">Overview of Software Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/software_packages.html#repository-naming">Repository Naming</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scout_navigation.html">Scout Navigation Respository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hunter/hunter.html">Hunter Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tracked/bunker.html">Bunker Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tracked/bunker.html#basic-operations">Basic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tracked/bunker.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../legged/a1.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legged/aliengo.html">Aliengo Robot Dog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Weston Robot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sample Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/_platforms/wheeled/scout/scout_navigation/sample_development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sample-development">
+<h1>Sample Development<a class="headerlink" href="#sample-development" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>A sample development of the Scout platform, for navigation and mapping is provided in</dt>
+<dd><em>scout_nav_platform</em>. This package will be elaborated on in this segment.</dd>
+</dl>
+<div class="section" id="hardware-specifications">
+<h2>1. Hardware Specifications<a class="headerlink" href="#hardware-specifications" title="Permalink to this headline">¶</a></h2>
+<p>The hardware attached to the Scout robot are:</p>
+<ol class="arabic simple">
+<li>Metal Frame</li>
+<li>Power Distribution Board (PDB)</li>
+<li>Onboard Computer: Jetson Xavier NX</li>
+<li>Onboard Router: Asus RT - N56U</li>
+<li>3D Lidar: (LS 16-Channel LiDAR (Compact)](<a class="reference external" href="http://www.lslidar.com/product/leida/MX/33802ac6-f05e-4818-ac95-f73b84e99131.html">http://www.lslidar.com/product/leida/MX/33802ac6-f05e-4818-ac95-f73b84e99131.html</a>)</li>
+</ol>
+<p>A seperate PC will be connected wirelessly to the onbaord system.This PC will be refered to as the <em>workstation</em>.</p>
+<p>Through the CAN interface on the Scout robot, the power is routed to the PDB and distributed to the onboard computer, router and LiDAR.</p>
+<p>The onboard computer is also connected to the CAN bus via the CAN interface on the Scout. The onboard computer thus sends the steering commands to the in-build micro-controller in the Scout.</p>
+<p>The LiDAR used can only transmit data through ethernet protocol. The router is used to connect the LiDAR, the onboard computer and the workstation.</p>
+</div>
+<div class="section" id="software-specifications">
+<h2>2. Software Specifications<a class="headerlink" href="#software-specifications" title="Permalink to this headline">¶</a></h2>
+<p>The onboard computer is running Ubuntu 18.04 with ROS Melodic.</p>
+<ul>
+<li><p class="first">IP Adresses:</p>
+<blockquote>
+<div><ul class="simple">
+<li>work station: 10.10.0.150</li>
+<li>onboard computer: 10.10.0.10</li>
+<li>lsLiDAR: 10.10.0.30</li>
+</ul>
+<p>The IP address of the work station and onboard computer were set using DHCP on the router, while the lsLiDAR IP address wast set statically using a customised software for lsLiDAR</p>
+</div></blockquote>
+</li>
+<li><p class="first">ROS packages</p>
+<ul class="simple">
+<li>[lslidar](<a class="reference external" href="https://github.com/pd-tan/lslidar_C16.git">https://github.com/pd-tan/lslidar_C16.git</a>) package was used to publish the LiDAR data as a ROS topic.</li>
+<li>[scout_base](<a class="reference external" href="https://github.com/westonrobot/scout_base.git">https://github.com/westonrobot/scout_base.git</a>) package was used to interface between ROS topics and CAN messages sent through the CAN bus.</li>
+<li>[scout_webots_sim](./scout_webots_sim) package was used to implements a Webots simulation of the navigation platform.</li>
+<li><cite>ROS navigation stack</cite> was used for mapping and navigation. gmapping was used for mapping while amcl was used for localization.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="running-actual-robot">
+<h2>3. Running Actual Robot<a class="headerlink" href="#running-actual-robot" title="Permalink to this headline">¶</a></h2>
+<p>Unless stated otherwise, all commands are to be run from the onbaord computer
+Ensure that the workstation is connected to the router on the Scout robot.</p>
+<ol class="arabic">
+<li><p class="first">Setup ROS network</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ source ~/catkin_ws/scout_navigation/scout_platform/scripts/ros_network_onboard_setup.bash
+</pre></div>
+</div>
+<p>On the workstation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ source ~/catkin_ws/scout_navigation/scout_platform/scripts/ros_network_workstation_setup.bash
+</pre></div>
+</div>
+<p>This setup must be run in every terminal instance used for ROS on both the workstation and the onboard computer. Consider adding these commands to ~/.bashrc to simplify setup.</p>
+<p>To test that the ROS network is setup appropriately:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roscore
+</pre></div>
+</div>
+<p>On the workstation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rostopic list
+</pre></div>
+</div>
+<p>If the terminal on the workstation is able to find the instance of ROS started on the onboard computer, the following should be returned on the workstation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/rosout
+/rosout_agg
+</pre></div>
+</div>
+<p>Ensure that no instance of ROS in running on the workstation prior to these tests.</p>
+<p>More information about ROS network can be found online.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Start Communication between Scout and Onboard PC</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_base scout_base.launch
+</pre></div>
+</div>
+<p>To test this communication, on the workstation</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_bringup scout_teleop_keyboard.launch
+</pre></div>
+</div>
+<p>from the workstation, the scout platform should be able to be controlled using the keyboard.</p>
+<p>Take note to suspend the Scout robot, ensuring that the wheels are not in contact with ground to prevent the robot from actually moving.</p>
+<p>More information about the communication between the onboard pc and scout can be found in [scout_base](<a class="reference external" href="https://github.com/westonrobot/scout_base.git">https://github.com/westonrobot/scout_base.git</a>)</p>
+</div></blockquote>
+</li>
+<li><p class="first">Start Communication with LiDAR</p>
+<blockquote>
+<div><p>Since a lsLiDAR is used for this platform, the ROS package developed for lsLiDAR is used.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch lslidar_c16_decoder lslidar_c16.launch
+</pre></div>
+</div>
+<p>To test that the node was launched successfully:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rostopic list
+</pre></div>
+</div>
+<p>The topics <em>/lslidar_packet</em>, <em>/lslidar_point_cloud</em> and <em>/lslidar_sweep</em> should be listed out.</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="simulation-specifications">
+<h2>4. Simulation Specifications<a class="headerlink" href="#simulation-specifications" title="Permalink to this headline">¶</a></h2>
+<p>The simulation should be run on the workstation and NOT the onboard computer</p>
+<p>The ROS [scout_nav_sim_node](./scout_nav_platfom/src/scout_nav_sim_node.cpp) written for this navigation platform implements the [WebotsRunner](./scout_webots_sim/src/scout_webots_runner.cpp) class from the scout_webots_sim package.</p>
+<p>Two extensions were implemented in C++ [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp). These two extensions were added to the instance of WebotsRunner to interface ROS with the LiDAR and IMU in Webots. The two extensions act as an interface between ROS and the extension in webots,</p>
+</div>
+<div class="section" id="running-simulation">
+<h2>5. Running Simulation<a class="headerlink" href="#running-simulation" title="Permalink to this headline">¶</a></h2>
+<p>To run the base instance of the simulation (with the platform and LiDAR, but no mapping or navigation running):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_nav_platoform scout_v2_sim_nav_platform
+</pre></div>
+</div>
+<p>The robot model loaded from this launch file will have the LiDAR attached to the model (floating above the scout model). Furthermore, the robot model will be loaded into an indoor house environment.</p>
+<p>Compared to the scout_v2_sim_node_basic.launch, the ROS node created from this scout_v2_sim_nav_platform.launch file publishes the additional topics of:
+1. /imu
+2. /rslidar_points</p>
+<p>These additional topics are published as a result of [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp).</p>
+</div>
+<div class="section" id="running-mapping">
+<h2>6. Running Mapping<a class="headerlink" href="#running-mapping" title="Permalink to this headline">¶</a></h2>
+<p>Regardless of wether the simulation or the actual robot is used, the following steps for running mapping are the same.</p>
+<p>For the simulation, the command are all run on the workstation.</p>
+<p>For the actual robot, commands are run on the onboard computer, unless otherwise stated</p>
+<ol class="arabic">
+<li><p class="first">Launch Description</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_nav_platform scout_v2_nav_platform_description.launch
+</pre></div>
+</div>
+<p>This will publish the transforms between the different links of the robot as well as the odom and map link</p>
+</div></blockquote>
+</li>
+<li><p class="first">Visualize on Workstation</p>
+<blockquote>
+<div><p>The data obtained from the LiDAR, as well as the transforms, can be visualised in RVIZ.</p>
+<p>On the workstation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rosrun rviz rviz
+</pre></div>
+</div>
+<p>Add the folllowing:</p>
+<ol class="arabic simple">
+<li>pointcloud</li>
+<li>tf</li>
+</ol>
+<p>If all the above steps were executed without issue, the pointcloud obtained from the LiDAR will be seen on RVIZ.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Run mapping</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_ros_nav scout_v2_mapping.launch
+</pre></div>
+</div>
+<p>The map can be visualized on RVIZ by adding the <cite>map</cite> and selecting the map topic.</p>
+<p>To obtain an appropriate map of the surrounding, the Scout has to be moved around. The Scout robot can be controlled from the workstation using:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ roslaunch scout_bringup scout_teleop_keyboard.launch
+</pre></div>
+</div>
+<p>As the Scout is moving around, a map of its surrounding will be obtained and displayed on RVIZ</p>
+</li>
+</ol>
+</div>
+<div class="section" id="saving-and-loading-of-maps">
+<h2>7. Saving and Loading of maps<a class="headerlink" href="#saving-and-loading-of-maps" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">To save the map generated from mapping:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ rosrun map_server map_saver -f {YOUR_CATKIN_WORKSPACE}/src/scout_navigation/scout_ros_nav/maps/{YOUR_MAP_NAME}
+</pre></div>
+</div>
+<p>The map_server should be run after the map obtained is satisfactory and can be be used for navigation. The map will be saved as YOUR_MAP_NAME.yaml and YOUR_MAP_NAME.pgm</p>
+</div></blockquote>
+</li>
+<li><p class="first">To select the .yaml map file, edit the map_file value in the launch file (scout_v2_sim_navigation.launch or scout_v2_robot_navigation.launch)</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;arg name=&quot;map_file&quot; default=&quot;$(find scout_ros_nav)/maps/webots_indoor.yaml&quot;/&gt;
+</pre></div>
+</div>
+<p>should be changed to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;arg name=&quot;map_file&quot; default=&quot;${YOUR_CATKIN_WORKSPACE}/src/scout_navigation/scout_ros_nav/maps/{YOUR_MAP_NAME}.yaml&quot;/&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Weston Robot Pte Ltd
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -13,7 +13,6 @@ This website provides intrsutctions and explanations to aid in debugging of proj
 *******************
 General Development
 *******************
-
 This segment generally summarises key aspects of operating our robot platforms.
 
 Overview
@@ -27,14 +26,15 @@ This
    /_general/mobile_robot_system
    /_general/operational_safety
    /_general/robot_maintenance
+   /_general/communication
    /_general/software_packages
 
-**********************
+***********************
 Wheeled Robot Platform
 **********************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 5
 
    /_platforms/wheeled/scout/scout
    /_platforms/wheeled/hunter/hunter

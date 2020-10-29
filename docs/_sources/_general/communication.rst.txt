@@ -1,15 +1,12 @@
-CAN/UART Interface
-==================
-
-.. toctree::
-   :maxdepth: 1
-      
-This segment runs throughs the interface between ROS messages and low level communications (CAN / UART)
+#########################################
+Introduction: ROS to CAN/Serial interface
+#########################################
+This segment runs throughs the interface between ROS messages and low level communications (CAN / Serial)
 
 The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
 
-   .. image:: figures/communication_overview.png
-      :height: 650
+   .. image:: resources/Communication_overview.png
+      :width: 600
 
 
 Moving down the flow chart:
@@ -32,8 +29,9 @@ into platform-unique *Platform Messages*.
 
 With reference to the Overview of Software Packages, <platform>_base handles the ROS Interface. ugv_sdk handles the Basic Operations Interface.
 
-CAN/UART Interface/ugv_sdk
-----------------------------
+*****************************
+CAN/Serial Interface/ugv_sdk
+*****************************
 
 This segment outlines how the ugv_sdk: https://github.com/westonrobot/ugv_sdk handles the CAN communication.
 
@@ -46,8 +44,7 @@ If you are:
 this segment is extremely crucial.
 
 CAN Interface
-^^^^^^^^^^^^^
-
+=============
 Information on CAN bus can be found in https://www.youtube.com/watch?v=FqLDpHsxvf8 and https://en.wikipedia.org/wiki/CAN_bus.
 
 Many protocols for communication through the CAN bus is similar for different platforms. 
@@ -60,17 +57,16 @@ On the level of `MobileBase` the following is handled:
 3. Maintaining stream of CAN Frames
 
 Enabling CAN communication
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+--------------------------
 If the computer you are using contains a physical CAN bus, communication via CAN bus should be simple.
 Otherwise, a USB to CAN adaptor can be used. If a USB to CAN adaptor is used, the follwing commands are required::
 
 $ sudo modprobe gs_usb
 $ sudo ip link set can0 up type can bitrate 500000
 
-Starting CAN connection
-^^^^^^^^^^^^^^^^^^^^^^^
 
+Starting CAN connection
+-----------------------
 During the setting up of CAN connection, the protocol used to read the CAN Frame will be set. 
 Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame *rx_frame) function. 
 
@@ -79,8 +75,7 @@ This is to ensure that if communication is lost, the robot would not be stuck ex
 and instead the robot will stop moving.
 
 Maintaining stream of CAN Frames
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+--------------------------------
 The control of this continuous stream of CAN Frames is handled by the::
 
    void MobileBase::ControlLoop(int32_t period_ms)
@@ -91,8 +86,12 @@ However, the types CAN Frames varies between robots.
 Therefore, the actual function designed to send each message is determined by each platform in the `SendRobotCmd()` function
 i.e. Each platform designs is CAN Frame sending protocol while the MobileRobot abstract class maintains the loop.
 
+Disconnecting CAN connection 
+----------------------------
+
+
 Testing CAN connection
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 After connecting the robot and the computer via the CAN bus, an additional device should show up from the commands::
 
@@ -123,8 +122,7 @@ is shown, it indicates that TODO: not sure exactly what is indicates::
 could fix this issue
 
 Further debugging of CAN
-^^^^^^^^^^^^^^^^^^^^^^^^
-
+------------------------
 If the CAN communication between the computer and the platform is still unable to occur, there might be a hardware fault on the robot platform
 affecting the CAN communication. The following websites provide a simple overview on how you could go about debugging the hardware on the robot platform.
 
@@ -144,8 +142,11 @@ A simple set of instructionss is given below. These instructions assume basic kn
 
 #. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform
 
+
 ROS Interface
-^^^^^^^^^^^^^
+=============
+.. toctree::
+   :maxdepth: 1
 
 In general, the role of the ROS interface is simply to translate messages between platform specific C++ data structures and ROS topics.
 

@@ -5,7 +5,7 @@ This segment runs throughs the interface between ROS messages and low level comm
 
 The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
 
-   .. image:: resources/Communication_overview.png
+   .. image:: figures/communication_overview.png
       :width: 600
 
 

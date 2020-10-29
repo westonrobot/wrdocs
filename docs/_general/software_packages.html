@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,16 +26,18 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scout Mobile Robot" href="../_platforms/wheeled/scout/scout.html" />
+    <link rel="prev" title="Robot Maintenance" href="robot_maintenance.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,7 +85,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="mobile_robot_system.html">Overview of Robots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="operational_safety.html">Operational Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="robot_maintenance.html">Robot Maintenance</a><ul>
@@ -91,11 +93,16 @@
 <li class="toctree-l2"><a class="reference internal" href="robot_maintenance.html#tire">Tire</a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview of Software Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repository-naming">Repository Naming</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#software-developemnt-kits">Software Developemnt Kits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout_navigation.html">Scout Navigation Respository</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
@@ -185,10 +192,11 @@
 <div class="section" id="repository-naming">
 <h2>Repository Naming<a class="headerlink" href="#repository-naming" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>ugv_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.</li>
-<li>&lt;platform_name&gt;_base: This repository provides the interface between ROS and UGV_sdk.<ul>
-<li>This repository is structure based on the standard ROS package sturcture for a robot.</li>
-<li>The &lt;platform name&gt;_base package translates ROS messages into C++ data structure. This C++ data structure is then converted to low levle messages by ugv_sdk.</li>
+<li><p>ugv_sdk: This SDK deals with the low level communication between the computer and the robot platofrm via CAN and Serial bus. Currently, this SDK supports the platforms Hunter,Scout and Tracer.</p></li>
+<li><p>&lt;platform_name&gt;_base: This repository provides the interface between ROS and UGV_sdk.</p>
+<ul>
+<li><p>This repository is structure based on the standard ROS package sturcture for a robot.</p></li>
+<li><p>The &lt;platform name&gt;_base package translates ROS messages into C++ data structure. This C++ data structure is then converted to low levle messages by ugv_sdk.</p></li>
 </ul>
 </li>
 </ul>
@@ -196,11 +204,11 @@
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>To give a clearer overview on the purpose of the package, a sample scenario for using these SDKs is described below:</p>
 <ul class="simple">
-<li>You are using the scout platform with a LIDAR module attachced to it.</li>
-<li>You would like to use the ROS navigation stack to control the scout platform in a mapped region using the inputs from the LIDAR module.</li>
-<li>Using the LIDAR’s own software package, a LIDAR node in ROS is created the publsihes a /scan data.</li>
-<li>Using the Scout_Base SDK, a node is created that subscribes to /cmd_vel topics and publishes /odom topic.</li>
-<li>Based on the position which the LIDAR is mounted, a .xacro file for the trasnform between the platform and the LIDAR is created.</li>
+<li><p>You are using the scout platform with a LIDAR module attachced to it.</p></li>
+<li><p>You would like to use the ROS navigation stack to control the scout platform in a mapped region using the inputs from the LIDAR module.</p></li>
+<li><p>Using the LIDAR’s own software package, a LIDAR node in ROS is created the publsihes a /scan data.</p></li>
+<li><p>Using the Scout_Base SDK, a node is created that subscribes to /cmd_vel topics and publishes /odom topic.</p></li>
+<li><p>Based on the position which the LIDAR is mounted, a .xacro file for the trasnform between the platform and the LIDAR is created.</p></li>
 </ul>
 <p>With this, ROS navigation stack is able to navigate the robot based on the provided map.</p>
 <p>This specific example has been implemented and can be found in TODO: link to scout_nav package</p>
@@ -215,6 +223,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../_platforms/wheeled/scout/scout.html" class="btn btn-neutral float-right" title="Scout Mobile Robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="robot_maintenance.html" class="btn btn-neutral float-left" title="Robot Maintenance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html4" lang="en" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -26,10 +26,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -91,11 +91,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../_general/robot_maintenance.html#tire">Tire</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../_general/software_packages.html">Overview of Software Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_general/software_packages.html#repository-naming">Repository Naming</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout.html#software-developemnt-kits">Software Developemnt Kits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_platforms/wheeled/scout/scout_navigation.html">Scout Navigation Respository</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../_platforms/wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
@@ -184,17 +189,17 @@
 </div></blockquote>
 <p>Moving down the flow chart:</p>
 <ol class="arabic simple">
-<li>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</li>
-<li>The information in the ROS message will be translated into a platform-unique C++ data structure known as a <em>Platform Command</em>.</li>
-<li>The Basic Operation package contains the subroutines required to translate these platform into CAN frames.</li>
-<li>Furthermore, the package handles the communication of the CAN frame through the CAN bus.</li>
+<li><p>The ROS interface will create a node that listens for ROS messages of a specified ROS topic.</p></li>
+<li><p>The information in the ROS message will be translated into a platform-unique C++ data structure known as a <em>Platform Command</em>.</p></li>
+<li><p>The Basic Operation package contains the subroutines required to translate these platform into CAN frames.</p></li>
+<li><p>Furthermore, the package handles the communication of the CAN frame through the CAN bus.</p></li>
 </ol>
 <p>Moving up the flow chart:
 1. The Basic Operations Interface will also contain the subroutines required to read the CAN frames and translate them
 into platform-unique <em>Platform Messages</em>.</p>
 <ol class="arabic simple" start="2">
-<li>These messages can then be translated into ROS messages by the ROS interface.</li>
-<li>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</li>
+<li><p>These messages can then be translated into ROS messages by the ROS interface.</p></li>
+<li><p>The ROS interface will also handle publishing of these messages to the appropriate ROS topic.</p></li>
 </ol>
 <p>With reference to the Overview of Software Packages, &lt;platform&gt;_base handles the ROS Interface. ugv_sdk handles the Basic Operations Interface.</p>
 <div class="section" id="can-serial-interface-ugv-sdk">
@@ -202,8 +207,8 @@ into platform-unique <em>Platform Messages</em>.</p>
 <p>This segment outlines how the ugv_sdk: <a class="reference external" href="https://github.com/westonrobot/ugv_sdk">https://github.com/westonrobot/ugv_sdk</a> handles the CAN communication.</p>
 <p>If you are:</p>
 <ol class="arabic simple">
-<li>developing the &lt;platform&gt;_base or</li>
-<li>updating ugv_sdk to support an additional robot</li>
+<li><p>developing the &lt;platform&gt;_base or</p></li>
+<li><p>updating ugv_sdk to support an additional robot</p></li>
 </ol>
 <p>this segment is extremely crucial.</p>
 <div class="section" id="can-interface">
@@ -213,9 +218,9 @@ into platform-unique <em>Platform Messages</em>.</p>
 As such, an abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
 <p>On the level of <cite>MobileBase</cite> the following is handled:</p>
 <ol class="arabic simple">
-<li>Setting up CAN connection</li>
-<li>Disconnecting CAN connection</li>
-<li>Maintaining stream of CAN Frames</li>
+<li><p>Setting up CAN connection</p></li>
+<li><p>Disconnecting CAN connection</p></li>
+<li><p>Maintaining stream of CAN Frames</p></li>
 </ol>
 <div class="section" id="enabling-can-communication">
 <h4>Enabling CAN communication<a class="headerlink" href="#enabling-can-communication" title="Permalink to this headline">¶</a></h4>
@@ -284,16 +289,16 @@ affecting the CAN communication. The following websites provide a simple overvie
 <p><a class="reference external" href="https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video">https://support.enovationcontrols.com/hc/en-us/articles/360038856494-CAN-BUS-Troubleshooting-Guide-with-Video</a>-</p>
 <p>A simple set of instructionss is given below. These instructions assume basic knnowledge on electrical engineering and circuits. Furthermore, it is assumed that you have read through the links given Above</p>
 <ol class="arabic simple">
-<li>The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:</li>
+<li><p>The robot platforms Scout and Hunter do not have termination resistors between the CAN HI and LO terminals. As such:</p></li>
 </ol>
 <blockquote>
 <div><ul class="simple">
-<li>If all peripherals are disconnected from the robot, and you measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even open circuit is expected.</li>
-<li>The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.</li>
+<li><p>If all peripherals are disconnected from the robot, and you measure the resistance betwweenn CAN HI and LO terminals, a reading of about 50 M ohms or even open circuit is expected.</p></li>
+<li><p>The computer connected to the platform should contain a terminationn resistor of 120 ohms. (If the board provided by weston robots is used, a jumper can be used to attach/dettacch the 120 ohm resistor.</p></li>
 </ul>
 </div></blockquote>
 <ol class="arabic simple">
-<li>With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform</li>
+<li><p>With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform</p></li>
 </ol>
 </div>
 </div>

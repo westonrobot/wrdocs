@@ -12,10 +12,13 @@ This repositry provides 4 interlinked packages:
 #. scout_bringup: Provides launch files that encapsulate multi nodes for ease of usage.
 
 
-.. include:: /scout_base_pkg.rst
-.. include:: /scout_msgs_pkg.rst
-.. include:: /scout_description_pkg.rst
-.. include:: /scout_bringup_pkg.rst
+.. include:: ./scout_base_repository/scout_base_pkg.rst
+
+.. include:: ./scout_base_repository/scout_msgs_pkg.rst
+
+.. include:: ./scout_base_repository/scout_description_pkg.rst
+
+.. include:: ./scout_base_repository/scout_bringup_pkg.rst
 
 
 

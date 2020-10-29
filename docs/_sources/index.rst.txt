@@ -27,6 +27,7 @@ This
    /_general/mobile_robot_system
    /_general/operational_safety
    /_general/robot_maintenance
+   /_general/communication
    /_general/software_packages
 
 **********************
@@ -34,7 +35,7 @@ Wheeled Robot Platform
 **********************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 5
 
    /_platforms/wheeled/scout/scout
    /_platforms/wheeled/hunter/hunter

@@ -1,0 +1,241 @@
+Sample Development
+==================
+A sample development of the Scout platform, for navigation and mapping is provided in
+ *scout_nav_platform*. This package will be elaborated on in this segment.
+
+
+1. Hardware Specifications
+--------------------------
+
+The hardware attached to the Scout robot are:
+
+#. Metal Frame
+
+#. Power Distribution Board (PDB)
+
+#. Onboard Computer: Jetson Xavier NX
+
+#. Onboard Router: Asus RT - N56U
+
+#. 3D Lidar: (LS 16-Channel LiDAR (Compact)](http://www.lslidar.com/product/leida/MX/33802ac6-f05e-4818-ac95-f73b84e99131.html)
+
+A seperate PC will be connected wirelessly to the onbaord system.This PC will be refered to as the *workstation*.
+
+Through the CAN interface on the Scout robot, the power is routed to the PDB and distributed to the onboard computer, router and LiDAR.
+
+The onboard computer is also connected to the CAN bus via the CAN interface on the Scout. The onboard computer thus sends the steering commands to the in-build micro-controller in the Scout.
+
+The LiDAR used can only transmit data through ethernet protocol. The router is used to connect the LiDAR, the onboard computer and the workstation.
+
+
+2. Software Specifications
+--------------------------
+
+The onboard computer is running Ubuntu 18.04 with ROS Melodic.
+
+* IP Adresses:
+
+    * work station: 10.10.0.150
+    * onboard computer: 10.10.0.10
+    * lsLiDAR: 10.10.0.30
+    
+    The IP address of the work station and onboard computer were set using DHCP on the router, while the lsLiDAR IP address wast set statically using a customised software for lsLiDAR
+
+* ROS packages
+
+  * [lslidar](https://github.com/pd-tan/lslidar_C16.git) package was used to publish the LiDAR data as a ROS topic.
+  * [scout_base](https://github.com/westonrobot/scout_base.git) package was used to interface between ROS topics and CAN messages sent through the CAN bus.
+  * [scout_webots_sim](./scout_webots_sim) package was used to implements a Webots simulation of the navigation platform.
+  * `ROS navigation stack` was used for mapping and navigation. gmapping was used for mapping while amcl was used for localization.
+
+
+3. Running Actual Robot
+-----------------------
+
+Unless stated otherwise, all commands are to be run from the onbaord computer
+Ensure that the workstation is connected to the router on the Scout robot.
+
+#. Setup ROS network
+
+    .. code-block:: none
+        
+        $ source ~/catkin_ws/scout_navigation/scout_platform/scripts/ros_network_onboard_setup.bash
+
+    On the workstation:
+    
+    .. code-block:: none
+        
+        $ source ~/catkin_ws/scout_navigation/scout_platform/scripts/ros_network_workstation_setup.bash
+
+    This setup must be run in every terminal instance used for ROS on both the workstation and the onboard computer. Consider adding these commands to ~/.bashrc to simplify setup.
+
+    To test that the ROS network is setup appropriately:
+    
+    .. code-block:: none
+
+        $ roscore
+    
+
+    On the workstation:
+    
+    .. code-block:: none
+        
+        $ rostopic list
+    
+
+    If the terminal on the workstation is able to find the instance of ROS started on the onboard computer, the following should be returned on the workstation: 
+    
+    .. code-block:: none
+        
+        /rosout
+        /rosout_agg
+    
+
+    Ensure that no instance of ROS in running on the workstation prior to these tests.
+
+    More information about ROS network can be found online.
+
+#. Start Communication between Scout and Onboard PC
+
+    .. code-block:: none
+
+        $ roslaunch scout_base scout_base.launch
+      
+    To test this communication, on the workstation
+
+    .. code-block:: none
+
+        $ roslaunch scout_bringup scout_teleop_keyboard.launch
+    
+
+    from the workstation, the scout platform should be able to be controlled using the keyboard. 
+
+    Take note to suspend the Scout robot, ensuring that the wheels are not in contact with ground to prevent the robot from actually moving.
+
+    More information about the communication between the onboard pc and scout can be found in [scout_base](https://github.com/westonrobot/scout_base.git)
+
+
+#. Start Communication with LiDAR
+
+    Since a lsLiDAR is used for this platform, the ROS package developed for lsLiDAR is used. 
+
+    .. code-block:: none
+
+        $ roslaunch lslidar_c16_decoder lslidar_c16.launch
+    
+    To test that the node was launched successfully:
+    
+    .. code-block:: none
+
+        rostopic list
+    
+
+    The topics */lslidar_packet*, */lslidar_point_cloud* and */lslidar_sweep* should be listed out.
+
+
+
+4. Simulation Specifications
+----------------------------
+
+The simulation should be run on the workstation and NOT the onboard computer
+
+The ROS [scout_nav_sim_node](./scout_nav_platfom/src/scout_nav_sim_node.cpp) written for this navigation platform implements the [WebotsRunner](./scout_webots_sim/src/scout_webots_runner.cpp) class from the scout_webots_sim package. 
+
+Two extensions were implemented in C++ [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp). These two extensions were added to the instance of WebotsRunner to interface ROS with the LiDAR and IMU in Webots. The two extensions act as an interface between ROS and the extension in webots,
+
+5. Running Simulation
+---------------------
+
+To run the base instance of the simulation (with the platform and LiDAR, but no mapping or navigation running):
+
+.. code-block:: none
+
+    $ roslaunch scout_nav_platoform scout_v2_sim_nav_platform
+
+The robot model loaded from this launch file will have the LiDAR attached to the model (floating above the scout model). Furthermore, the robot model will be loaded into an indoor house environment. 
+
+Compared to the scout_v2_sim_node_basic.launch, the ROS node created from this scout_v2_sim_nav_platform.launch file publishes the additional topics of:
+1. /imu
+2. /rslidar_points
+
+These additional topics are published as a result of [imu_extension](./scout_nav_platform/src/imu_extension.cpp) and [lidar_extension](./scout_nav_platform/src/lidar_extension.cpp).
+
+6. Running Mapping
+------------------
+
+Regardless of wether the simulation or the actual robot is used, the following steps for running mapping are the same. 
+
+For the simulation, the command are all run on the workstation. 
+
+For the actual robot, commands are run on the onboard computer, unless otherwise stated
+
+#. Launch Description
+
+    .. code-block:: none 
+        
+        $ roslaunch scout_nav_platform scout_v2_nav_platform_description.launch
+  
+    This will publish the transforms between the different links of the robot as well as the odom and map link
+
+#. Visualize on Workstation
+   
+    The data obtained from the LiDAR, as well as the transforms, can be visualised in RVIZ. 
+
+    On the workstation:
+
+    .. code-block:: none
+    
+        $ rosrun rviz rviz
+ 
+    Add the folllowing:
+   
+    #. pointcloud
+    
+    #. tf
+
+    If all the above steps were executed without issue, the pointcloud obtained from the LiDAR will be seen on RVIZ.
+
+#.  Run mapping
+
+    .. code-block:: none
+
+        $ roslaunch scout_ros_nav scout_v2_mapping.launch
+  
+    The map can be visualized on RVIZ by adding the `map` and selecting the map topic.
+
+    To obtain an appropriate map of the surrounding, the Scout has to be moved around. The Scout robot can be controlled from the workstation using:
+
+    .. code-block:: none
+    
+        $ roslaunch scout_bringup scout_teleop_keyboard.launch
+
+
+    As the Scout is moving around, a map of its surrounding will be obtained and displayed on RVIZ
+
+
+7. Saving and Loading of maps
+-----------------------------
+
+* To save the map generated from mapping:
+    
+    .. code-block:: none
+    
+        $ rosrun map_server map_saver -f {YOUR_CATKIN_WORKSPACE}/src/scout_navigation/scout_ros_nav/maps/{YOUR_MAP_NAME}
+ 
+    The map_server should be run after the map obtained is satisfactory and can be be used for navigation. The map will be saved as YOUR_MAP_NAME.yaml and YOUR_MAP_NAME.pgm
+
+
+* To select the .yaml map file, edit the map_file value in the launch file (scout_v2_sim_navigation.launch or scout_v2_robot_navigation.launch)
+
+    .. code-block:: none
+    
+        <arg name="map_file" default="$(find scout_ros_nav)/maps/webots_indoor.yaml"/>  
+
+
+    should be changed to
+
+    .. code-block:: none
+    
+        <arg name="map_file" default="${YOUR_CATKIN_WORKSPACE}/src/scout_navigation/scout_ros_nav/maps/{YOUR_MAP_NAME}.yaml"/>
+    
+  
