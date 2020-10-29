@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom Development &mdash; Weston Robot V0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #323640" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/mobile_robot_system.html">Overview of Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/operational_safety.html">Operational Safety</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/robot_maintenance.html">Robot Maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/robot_maintenance.html#battery">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/robot_maintenance.html#tire">Tire</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_general/software_packages.html">Overview of Software Packages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../_general/software_packages.html#repository-naming">Repository Naming</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scout.html">Scout Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scout_base.html">Scout Base Respositry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scout_navigation.html">Scout Navigation Respository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hunter/hunter.html">Hunter Mobile Robot</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tracked/bunker.html">Bunker Mobile Robot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tracked/bunker.html#basic-operations">Basic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tracked/bunker.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../legged/a1.html">Basic Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../legged/aliengo.html">Aliengo Robot Dog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Weston Robot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Custom Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/_platforms/wheeled/scout/scout_navigation/custom_development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-development">
+<h1>Custom Development<a class="headerlink" href="#custom-development" title="Permalink to this headline">¶</a></h1>
+<p>This sections outlines how you would get started on creating your own package for the scout platform with custom hardware extensions, such as a lidar and imu. This respository consist of the files required for both the simulation and the interface with the physical platform and sensors.</p>
+<div class="section" id="package-and-directory-setup">
+<h2>1. Package and Directory Setup<a class="headerlink" href="#package-and-directory-setup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ catkin_create_package ${YOUR_PACKAGE_NAME} scout_webots_sim geometry_msgs message_generation pcl_ros roscpp roslaunch rospy scout_base sensor_msgs std_msgs tf webots_ros pointcloud_to_laserscan
+
+$ cd ${YOUR_PACKAGE_DIRECTORY}
+
+$ mkdir urdf rviz webots_setup
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulation-setup">
+<h2>2. Simulation Setup<a class="headerlink" href="#simulation-setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">New Webots Project</p>
+<blockquote>
+<div><ul class="simple">
+<li>Launch webots</li>
+<li>Create a new project directory in ${YOUR_PACKAGE_DIRECTORY}/webots_setup : Wizards – New Project Directory – Add a rectangle arena</li>
+<li>Copy the scout_v2.proto into the ${YOUR_PACKAGE_DIRECTORY}/webots_setup/protos directory</li>
+<li>Copy the scout_base_controller folder into the ${YOUR_PACKAGE_DIRECTORY}/webots_setup/</li>
+<li>Import the scout robot by adding a proto node: add – PROTO nodes (Current Projects) – ScoutV2(robot) – add</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Setting up custom extensions</p>
+<blockquote>
+<div><p>Adding your own extension consists of 3 main steps:</p>
+<ul class="simple">
+<li>Adding extension in webots model</li>
+<li>Adding the transforms for the extension in the .xacro file</li>
+<li>Writing the C++ code to interface between the webots extension and ROS</li>
+</ul>
+<p>The example of adding a RPLIDAR module is explained in this example.</p>
+</div></blockquote>
+</li>
+<li><p class="first">webots model</p>
+<blockquote>
+<div><ul class="simple">
+<li>Under ScoutV2, select extensionSlot and click &lt;add&gt; to add your desired extension</li>
+<li>Create folder “${YOUR_PACKAGE_DIRECTORY}/webots_setup/models”</li>
+<li>Export model with extensions into the exported models folder</li>
+<li>The exported model can now be imported into any world within the project.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">urdf/xacro model</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a new .xacro file</li>
+<li>Import the base .xacro file of the scout model using: <code class="docutils literal notranslate"><span class="pre">&lt;xacro:include</span> <span class="pre">filename=&quot;$(find</span> <span class="pre">scout_description)/urdf/scout_v2.xacro&quot;</span> <span class="pre">/&gt;</span></code></li>
+<li>Add the links and joints of the new extension</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">ROS/webots interface</p>
+<blockquote>
+<div><ul class="simple">
+<li>Create a class “ExtensionExample” that inherits the WebotsExtension class</li>
+<li>Define the setup protocol as shown in [lidar_extension.cpp](scout_ros_nav/src/lidar_extension.cpp)</li>
+<li>The purpose of this interface is to generate a node that calls the ROS services to interface with Webots. For example, the [lidar_extension.cpp](scout_ros_nav/src/lidar_extension.cpp) is used to generate a node that publishes the laser scan data from the lidar in the Webots simulation.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Exporting your new model to a different world</p>
+<blockquote>
+<div><p>Note: this is to export the model to a new world but within the same project.</p>
+<p>After the robot and its additional sensors has been modeled in the webots world, it is like that you would like to place this robots in different simulated environments, such as a workshop space or an indoor apartment. This sections brief outlines the main steps involved</p>
+<ul>
+<li><p class="first">Export the new robot model (with extensions) using the webots GUI:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Right-click the model node</li>
+<li>Click Export</li>
+<li>Save the model in a the folder ${YOUR_PACKAGE_DIRECTORY}/simulation/exported models</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Load the world in webots you want to import the model into.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Add the export robot model</dt>
+<dd><ul class="first last simple">
+<li>Add node</li>
+<li>Import…</li>
+<li>Select the model file that you exported in step 1</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Having finished the above steps, you should be able to see the scout platform with its extensions inside your chosen environment.</p>
+</div>
+<div class="section" id="robot-setup">
+<h2>3. Robot Setup<a class="headerlink" href="#robot-setup" title="Permalink to this headline">¶</a></h2>
+<p>If the hardware extensions, such as the type of LIDAR or camera, is already known/determined, the simulation should then be altered to closely follow the actual setup. For example:</p>
+<ul class="simple">
+<li>The location of sensors in the simulation should match the physical robot, so that the URDF files for both real and simulated robot are the same.</li>
+<li>The nodes created for the different webots extensions should behave similarly to the actual hardware set-up so that the accompanying programs, such a mapping and navigation, can be used for both the simulation and the physical robot</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Weston Robot Pte Ltd
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

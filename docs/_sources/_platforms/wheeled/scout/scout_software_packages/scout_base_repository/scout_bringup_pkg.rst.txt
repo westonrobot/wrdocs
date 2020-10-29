@@ -1,0 +1,16 @@
+scout_bringup package
+=====================
+This package collates launch files from the *scout_description* package and the *scout_base* package, with specific parameter for ease of use.
+
+Launch files
+------------
+#. scout_minimal_uart.launch: Launches *scout_description*, *scout_base.launch* setting the messages to be communicated to Scout using UART protocol
+
+#. scout_minimal.launch: Launches *scout_description*, *scout_base.launch* setting the messages to be communicated to Scout using CAN protocol
+
+#. scout_teleop_keyboard.launch: Launch teleop a teleop keyboard that publishes cmd_vel topic to control the robot
+
+.. toctree::
+   :maxdepth: 1
+
+   /_platforms/wheeled/scout/scout_software_packages/scout_navigation

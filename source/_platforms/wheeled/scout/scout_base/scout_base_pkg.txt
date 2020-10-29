@@ -1,0 +1,32 @@
+******************
+scout_base Package
+******************
+
+Package Summary
+===============
+
+The scout_base package provides the implementation of the *scout_base_node*. This nodes acts as the interface between common ROS topics and converts them into CAN messages, using ugv_sdk.
+
+Launch files
+=============
+scout_base.launch: runs the scout_base_nodes as described below.
+
+
+Subscribed Topics
+-----------------
+* /cmd_vel
+* /scout_light_control
+
+Published Topics
+----------------
+* /scout_status
+* /odom
+* /tf
+
+Parameters
+----------
+* /base_frame - default: base_link
+* /odom_frame - default: odom
+* /odom_topic_name - default: odom
+* /port_name - default: can0
+* /simulated_robot - default: False

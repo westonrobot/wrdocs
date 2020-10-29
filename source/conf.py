@@ -21,7 +21,7 @@
 
 project = u'Weston Robot'
 copyright = u'2020, Weston Robot Pte Ltd'
-author = u'Weston Robot Team'
+author = u'Ruixiang Du'
 
 # The short X.Y version
 version = u''
@@ -135,13 +135,14 @@ latex_elements = {
     #
     # 'figure_align': 'htbp',
 }
+latex_toplevel_sectioning = 'part'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'WestonRobotDocumentation.tex', u'Weston Robot Documentation',
-     u'Weston Robot Team', 'manual'),
+     u'Ruixiang Du', 'manual'),
 ]
 
 

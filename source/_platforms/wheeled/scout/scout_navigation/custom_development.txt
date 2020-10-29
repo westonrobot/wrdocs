@@ -1,0 +1,108 @@
+******************
+Custom Development
+******************
+
+This sections outlines how you would get started on creating your own package for the scout platform with custom hardware extensions, such as a lidar and imu. This respository consist of the files required for both the simulation and the interface with the physical platform and sensors.
+
+
+
+Package and Directory Setup
+===========================
+
+.. code-block:: none
+
+    $ catkin_create_package ${YOUR_PACKAGE_NAME} scout_webots_sim geometry_msgs message_generation pcl_ros roscpp roslaunch rospy scout_base sensor_msgs std_msgs tf webots_ros pointcloud_to_laserscan
+    
+    $ cd ${YOUR_PACKAGE_DIRECTORY}
+    
+    $ mkdir urdf rviz webots_setup
+
+
+
+Simulation Setup
+=================
+
+#. New Webots Project
+
+    * Launch webots
+
+    * Create a new project directory in ${YOUR_PACKAGE_DIRECTORY}/webots_setup : Wizards -- New Project Directory -- Add a rectangle arena
+
+    * Copy the scout_v2.proto into the ${YOUR_PACKAGE_DIRECTORY}/webots_setup/protos directory
+
+    * Copy the scout_base_controller folder into the ${YOUR_PACKAGE_DIRECTORY}/webots_setup/
+
+    * Import the scout robot by adding a proto node: add -- PROTO nodes (Current Projects) -- ScoutV2(robot) -- add
+
+#. Setting up custom extensions
+
+    Adding your own extension consists of 3 main steps:
+
+    * Adding extension in webots model
+
+    * Adding the transforms for the extension in the .xacro file
+
+    * Writing the C++ code to interface between the webots extension and ROS
+
+    The example of adding a RPLIDAR module is explained in this example.
+ 
+#. webots model
+
+    * Under ScoutV2, select extensionSlot and click <add> to add your desired extension
+    
+    * Create folder "${YOUR_PACKAGE_DIRECTORY}/webots_setup/models"
+    
+    * Export model with extensions into the exported models folder
+    
+    * The exported model can now be imported into any world within the project.
+
+#. urdf/xacro model
+
+    * Create a new .xacro file
+
+    * Import the base .xacro file of the scout model using: ``<xacro:include filename="$(find scout_description)/urdf/scout_v2.xacro" />``
+    
+    * Add the links and joints of the new extension
+
+#. ROS/webots interface
+
+    * Create a class "ExtensionExample" that inherits the WebotsExtension class
+
+    * Define the setup protocol as shown in [lidar_extension.cpp](scout_ros_nav/src/lidar_extension.cpp)
+
+    * The purpose of this interface is to generate a node that calls the ROS services to interface with Webots. For example, the [lidar_extension.cpp](scout_ros_nav/src/lidar_extension.cpp) is used to generate a node that publishes the laser scan data from the lidar in the Webots simulation.
+
+#. Exporting your new model to a different world
+
+    Note: this is to export the model to a new world but within the same project.
+
+    After the robot and its additional sensors has been modeled in the webots world, it is like that you would like to place this robots in different simulated environments, such as a workshop space or an indoor apartment. This sections brief outlines the main steps involved
+
+    * Export the new robot model (with extensions) using the webots GUI:
+    
+        * Right-click the model node
+    
+        * Click Export
+    
+        * Save the model in a the folder ${YOUR_PACKAGE_DIRECTORY}/simulation/exported models
+    
+    * Load the world in webots you want to import the model into.
+    
+    * Add the export robot model
+        * Add node
+        
+        * Import...
+        
+        * Select the model file that you exported in step 1
+
+Having finished the above steps, you should be able to see the scout platform with its extensions inside your chosen environment. 
+
+
+Robot Setup
+===========
+
+If the hardware extensions, such as the type of LIDAR or camera, is already known/determined, the simulation should then be altered to closely follow the actual setup. For example:
+
+* The location of sensors in the simulation should match the physical robot, so that the URDF files for both real and simulated robot are the same.
+
+* The nodes created for the different webots extensions should behave similarly to the actual hardware set-up so that the accompanying programs, such a mapping and navigation, can be used for both the simulation and the physical robot
