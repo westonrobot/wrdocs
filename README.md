@@ -17,6 +17,14 @@ Following instructions [here](https://docs.docker.com/engine/install/ubuntu/) to
 $ sudo docker run --rm -v ~/Workspace/docs:/docs rduweston/sphinx-rtd make html
 ```
 
+Deploy generated pages to github
+
+```
+$ make deploy
+```
+
+Then commit and push changes in the repository to Github.
+
 ## Reference
 
 * https://sphinx-rtd-theme.readthedocs.io/en/stable/demo/demo.html?highlight=color#topics-sidebars-and-rubrics
