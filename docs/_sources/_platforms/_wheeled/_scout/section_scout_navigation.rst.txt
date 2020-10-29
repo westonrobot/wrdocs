@@ -1,4 +1,0 @@
-Scout Navigation Respositry
-===========================
-
-dsadsasd

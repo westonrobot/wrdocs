@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mobile Bases &mdash; Weston Robot V0.1.0 documentation</title>
+  <title>CAN Interface &mdash; Weston Robot V0.1.0 documentation</title>
   
 
   
@@ -84,34 +84,28 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_general/mobile_robot_system.html">Overview of Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_general/mobile_robot_system.html">Mobile Robot System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../_general/mobile_robot_system.html#system-structure">System Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_general/mobile_robot_system.html#hardware-interface">Hardware Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../_general/mobile_robot_system.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../_general/operational_safety.html">Operational Safety</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../_general/robot_maintenance.html">Robot Maintenance</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../_general/robot_maintenance.html#battery">Battery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../_general/robot_maintenance.html#tire">Tire</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../_general/communication.html">ROS to CAN/Serial interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_general/communication.html#can-serial-interface-ugv-sdk">CAN/Serial Interface/ugv_sdk</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../_general/software_packages.html">Overview of Software Packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../_general/software_packages.html#repository-naming">Repository Naming</a></li>
-</ul>
-</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="wheeled/scout/scout.html">Scout Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout_base.html">Scout Base Respositry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout_navigation.html">Scout Navigation Respository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout.html#get-to-know-the-robot">Get to Know the Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout.html#pre-operational-check">Pre-operational Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout.html#power-up-and-manual-control">Power-up and Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheeled/scout/scout.html#onboard-control">Onboard Control</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="wheeled/hunter/hunter.html">Hunter Mobile Robot</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="wheeled/hunter/hunter_ROS_interface.html">Hunter ROS Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="wheeled/hunter/hunter_CAN_Serial_interface.html">Hunter CAN/Serial Interface</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="wheeled/hunter/hunter.html">Hunter Mobile Robot</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tracked/bunker.html">Bunker Mobile Robot</a><ul>
@@ -121,8 +115,14 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="legged/a1.html">Basic Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="legged/aliengo.html">Aliengo Robot Dog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legged/a1.html">A1 Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="legged/a1.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="legged/aliengo.html">Aliengo Robot Dog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="legged/aliengo.html#basic-operations">Basic Operations</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -169,7 +169,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Mobile Bases</li>
+      <li>CAN Interface</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -188,9 +188,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mobile-bases">
-<h1>Mobile Bases<a class="headerlink" href="#mobile-bases" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="can-interface">
+<h1>CAN Interface<a class="headerlink" href="#can-interface" title="Permalink to this headline">¶</a></h1>
+<p>Information on CAN bus can be found in <a class="reference external" href="https://www.youtube.com/watch?v=FqLDpHsxvf8">https://www.youtube.com/watch?v=FqLDpHsxvf8</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/CAN_bus">https://en.wikipedia.org/wiki/CAN_bus</a>.</p>
+<p>Many protocols for communication through the CAN bus is similar for different platforms.
+As such, a abstract class <cite>MobileBase</cite> was designed as the super class of the CAN interface class for each robot model.</p>
+<p>On the level of <cite>MobileBase</cite> the following is settled:</p>
+<ol class="arabic simple">
+<li><p>Setting up CAN connection</p></li>
+<li><p>Disconnecting CAN connection</p></li>
+<li><p>Maintaining stream of CAN Frames</p></li>
+</ol>
+<div class="section" id="setting-up-can-connection">
+<h2>Setting up CAN connection<a class="headerlink" href="#setting-up-can-connection" title="Permalink to this headline">¶</a></h2>
+<p>During the setting up of CAN connection, the protocol used to read the CAN Frame will be set.
+Since each platform will process CAN Frames differently, each platform will write its own ParseCANFrame(can_frame <a href="#id1"><span class="problematic" id="id2">*</span></a>rx_frame) function.
+The calling</p>
+<p>To ensure the safe operation of the robot, a steady stream of commands from the computer and the onboard embedded controller is required.
+This is to ensure that if communication is lost, the robot would not be stuck executing the previously sent command,
+and instead the robot will stop moving.</p>
+</div>
+<div class="section" id="disconnecting-can-connection">
+<h2>Disconnecting CAN connection<a class="headerlink" href="#disconnecting-can-connection" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="maintaining-stream-of-can-frames">
+<h2>Maintaining stream of CAN Frames<a class="headerlink" href="#maintaining-stream-of-can-frames" title="Permalink to this headline">¶</a></h2>
+<p>The control of this continuous stream of CAN Frames being sent to the embedded controller is controlled by the MobileBase in the
+<cite>void MobileBase::ControlLoop(int32_t period_ms)</cite> function. However, the types CAN Frames to be sent varies between robots.
+Therefore, the actual function designed to send each message is determined by each platform in the <cite>SendRobotCmd()</cite> function
+i.e. Each platform designs is CAN Frame sending protocol while the maintaining of the loop is on the MobileRobot abstract class.</p>
 </div>
 </div>
 

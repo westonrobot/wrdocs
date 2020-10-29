@@ -22,3 +22,4 @@ deploy:
 	sudo rm -rf ./docs
 	mkdir docs
 	cp -rf ./build/html/* ./docs
+	cd docs && touch .nojekyll
