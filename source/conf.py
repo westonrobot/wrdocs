@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Weston Robot'
-copyright = u'2020, Weston Robot Pte Ltd'
-author = u'Ruixiang Du'
+copyright = u'2021, Weston Robot Pte Ltd'
+author = u'Weston Robot Team'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'V0.1.0'
+release = u'v0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -142,7 +142,7 @@ latex_toplevel_sectioning = 'part'
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'WestonRobotDocumentation.tex', u'Weston Robot Documentation',
-     u'Ruixiang Du', 'manual'),
+     u'Weston Robot Team', 'manual'),
 ]
 
 

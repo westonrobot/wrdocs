@@ -73,7 +73,7 @@ In summary, the packages written here converts ROS messages to CAN frames / Seri
 
 The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
 
-.. image:: figures/communication_overview.png
+.. image:: ../../../_figures/communication_overview.png
     :width: 400
     :align: center
 

@@ -1,6 +1,10 @@
-###########################
+###################
+UGV System Overview
+###################
+
 ROS to CAN/Serial interface
-###########################
+***************************
+
 This segment runs throughs the interface between ROS messages and low level communications (CAN / Serial)
 
 The conversion from ROS message to CAN frame occurs in two main steps as shown in the flow chart.
@@ -29,7 +33,6 @@ into platform-unique *Platform Messages*.
 
 With reference to the Overview of Software Packages, <platform>_base handles the ROS Interface. ugv_sdk handles the Basic Operations Interface.
 
-*****************************
 CAN/Serial Interface/ugv_sdk
 *****************************
 
@@ -148,7 +151,6 @@ knowledge on electrical engineering and circuits. Furthermore, it is assumed tha
 
 #. With the platform switched off, test the connectivity between corresponding pins of the CAN interface. i.e. Test that CAN HI on all CAN interfaces are connected to each other. If the different ports are not connected, there is likely an internal wiring issue with the platform
 
-*************
 ROS Interface
 *************
 .. toctree::

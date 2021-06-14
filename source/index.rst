@@ -8,53 +8,45 @@
 Welcome to Weston Robot Documentation
 #####################################
 
-This website provides intrsutctions and explanations to aid in debugging of projects that utilise the hardware and software packages provided by Weston Robots.
+This website provides intrsutctions and tutorials on the setup and software development of the robot platforms from Weston Robot.
 
 ###################
-General Development
+General Information
 ###################
-This segment generally summarises key aspects of operating our robot platforms.
+
+This section generally summarises key aspects of operating our robot platforms.
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
       
-   /_general/mobile_robot_system
    /_general/operational_safety
    /_general/robot_maintenance
-   /_general/software_packages
-   /_general/communication
 
-
-
-######################
-Wheeled Robot Platform
-######################
+#####################
+Mobile Robot Platform
+#####################
 
 This part of the document is written from the perspective of a user. 
 As such, the *<platform>_base* packages are viewed as an interface between ROS and CAN. 
 Although, as mentioned in the previous part of the document, 
 the *<platform>_base* packages largely interface between ROS and C++, while *ugv_sdk* deal with C++ to CAN.
 
-
 .. toctree::
-   :maxdepth: 5
+    :maxdepth: 2
 
-   /_platforms/wheeled/scout/scout
-   /_platforms/wheeled/hunter/hunter
-   
-
-######################
-Tracked Robot Platform
-######################
+UGV Platforms
+*************
 
 .. toctree::
    :maxdepth: 1
 
-   /_platforms/tracked/bunker
+   /_platforms/ugv/common/ugv_system_overview
+   /_platforms/ugv/scout/scout
+   /_platforms/ugv/hunter/hunter
    
-#####################
-Legged Robot Platform
-#####################
+   
+Legged Platforms
+****************
 
 .. toctree::
    :maxdepth: 1
